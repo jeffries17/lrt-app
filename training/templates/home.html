@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Long Run Training</h1>
+    <p>Your one-stop hub for all running training and calculation tools.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card border-light mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Training Plan Generators</h2>
+                    <p class="card-text">Detailed and personalized training plans to fit your schedule and goals.</p>
+                    <a href="/training-plans" class="btn btn-primary">View Plans</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-light mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Run Calculators</h2>
+                    <p class="card-text">Calculate pace, distance, and time for your runs.</p>
+                    <a href="{% url 'ultramarathon_pace_calculator' %}" class="btn btn-primary">Ultramarathon Pace Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

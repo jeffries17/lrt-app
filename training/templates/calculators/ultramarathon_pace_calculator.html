@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Ultramarathon Pace Calculator</h1>
+<form id="paceCalculator">
+    <label for="distance">Distance:</label><br>
+    <input type="number" id="distance" name="distance" min="0">
+    <select id="distanceUnit">
+        <option value="kilometers">Kilometers</option>
+        <option value="miles">Miles</option>
+    </select><br>
+    
+    <label for="elevation">Total Elevation Gain:</label><br>
+    <input type="number" id="elevation" name="elevation" min="0">
+    <select id="elevationUnit">
+        <option value="meters">Meters</option>
+        <option value="feet">Feet</option>
+    </select><br>
+    
+    <h2>Enter a recent race for base pace calculation:</h2>
+    <label for="recentDistance">Recent Race Distance:</label><br>
+    <input type="number" id="recentDistance" name="recentDistance" min="0">
+    <select id="recentDistanceUnit">
+        <option value="kilometers">Kilometers</option>
+        <option value="miles">Miles</option>
+    </select><br>
+    
+    <label for="recentTime">Recent Race Time (HH:MM:SS):</label><br>
+    <input type="text" id="recentTime" name="recentTime"><br>
+    
+    <input type="submit" value="Calculate Pace and Finish Time">
+</form>
+
+<p id="result"></p>
+
+<script src="{% static 'js/ultrapacecalculator.js' %}"></script> 
+
+{% endblock %}
