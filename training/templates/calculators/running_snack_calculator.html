@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Running Snack Calculator</h1>
+  <div id="calculatorForm" class="card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="unit">Distance Unit:</label>
+                      <select class="form-control" id="unit" onchange="updateAidStations()">
+                          <option value="km">Kilometers</option>
+                          <option value="miles">Miles</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="raceLength">Race Length:</label>
+                      <input type="number" class="form-control" id="raceLength" required>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="finishTime">Expected Finish Time (hours):</label>
+                      <input type="number" class="form-control" id="finishTime" required>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label for="aidStations">Number of Aid Stations:</label>
+                      <input type="number" class="form-control" id="aidStations" required oninput="updateAidStations()">
+                  </div>
+              </div>
+          </div>
+          <div class="row" id="aidStationDetails">
+              <!-- Dynamically added aid station cards will appear here -->
+          </div>
+          <div class="text-center mt-3">
+            <button type="button" class="btn btn-primary" onclick="calculateSnacks()">Calculate</button>
+          </div>
+      </div>
+  </div>
+  <div id="result" class="mt-4"></div>
+</div>
+
+<script>
+  var staticBaseUrl = "{% static '' %}";
+</script>
+
+<script src="{% static 'js/runningsnackcalculator.js' %}" defer></script>
+
+{% endblock %}
