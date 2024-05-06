@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form name="calculator" method="post" action="">
+  <div class="mp-form-row">
+      <div class="mp-form-label" style="width:100%">
+          <label>Race distance you're training for:</label>
+      </div>
+      <select name="distance" id="distance" class="mepr-form-input">
+          <option value="5 km">5 km</option>
+          <option value="8 km">8 km</option>
+          <option value="10 km">10 km</option>
+          <option value="12 km">12 km</option>
+          <option value="15 km">15 km</option>
+          <option value="1/2 Mar">1/2 Marathon</option>
+          <option value="Marathon">Marathon</option>
+          <option value="50 km">50 km</option>
+          <option value="100 km">100 km</option>
+      </select>
+  </div>
+  <div class="mp-form-row">
+      <div class="mp-form-label" style="width:100%">
+          <label>Your Current Time or Personal Best:</label>
+      </div>
+      <input type="text" name="current-time" id="current-time" class="mepr-form-input" value="01:00:00" placeholder="HH:MM:SS" />
+  </div>
+  <div class="mp-form-row">
+      <div class="mp-form-label" style="width:100%">
+          <label>Quality of Training:</label>
+      </div>
+      <select name="quality-of-training" id="quality-of-training" class="mepr-form-input">
+        <option value="beginner" selected>Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="experienced">Experienced</option>
+      </select>
+  </div>
+  <div class="mp-form-row">
+      <div class="mp-form-label" style="width:100%">
+          <label>Average Weekly Mileage:</label>
+      </div>
+      <select name="average-weekly-mileage" id="average-weekly-mileage" class="mepr-form-input">
+          <option value="10">10-20 miles or 16-30 km</option>
+          <option value="20">20-30 miles or 30-50 km</option>
+          <option value="30">30-40 miles or 50-65 km</option>
+          <option value="40">40-50 miles or 65-80 km</option>
+          <option value="50">50+ miles or 85 + km</option>
+      </select>
+  </div>
+  <div class="mp-form-row">
+      <input value="Predict My Improvement" class="mepr-share-button" type="button" id="predicted-time-improvement">
+  </div>
+  <div class="mp-form-row">
+      <div class="mp-form-label">
+          <label>Predicted Time:</label>
+      </div>
+      <input type="text" name="predicted-improvement" id="predicted-improvement" class="mepr-form-input" value="" />
+  </div>
+</form>
+<script src="{% static 'js/raceimprovementcalculator.js' %}"></script>
+
+{% endblock %}

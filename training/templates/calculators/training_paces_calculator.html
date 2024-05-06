@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-3">Training Paces Calculator</h2>
+      <form id="paceForm">
+          <div class="mb-3">
+              <label for="raceSelection" class="form-label">Select a Race</label>
+              <select class="form-control" id="raceSelection">
+                  <option value="5">5k</option>
+                  <option value="10">10k</option>
+                  <option value="21.0975">Half-Marathon</option>
+                  <option value="42.195">Marathon</option>
+                  <option value="custom">Custom Distance</option>
+              </select>
+          </div>
+          <div class="mb-3" id="customDistanceInput" style="display:none;">
+            <label for="customDistance" class="form-label">Enter Distance</label>
+            <input type="number" class="form-control" id="customDistance" placeholder="Enter distance">
+            <select class="form-control mt-2" id="distanceUnit">
+                <option value="km">Kilometers</option>
+                <option value="miles">Miles</option>
+            </select>
+        </div>
+          <div class="mb-3">
+            <label for="goalTime" class="form-label">Goal Time (HH:MM:SS)</label>
+            <input type="text" class="form-control" id="goalTime" placeholder="e.g., 3:45:00" required pattern="\d{1,2}:\d{2}:\d{2}">
+          </div>
+          <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
+      </form>
+  <div id="results" class="mt-4">
+    <h2 id="resultsHeader"></h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Pace Type</th>
+          <th>Min/Mile</th>
+          <th>Min/Km</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Race Pace</td>
+          <td id="racePaceMile"></td>
+          <td id="racePaceKm"></td>
+        </tr>
+        <tr>
+          <td>Recovery Run Pace</td>
+          <td id="recoveryPaceMile"></td>
+          <td id="recoveryPaceKm"></td>
+        </tr>
+        <tr>
+          <td>Progression Run Pace</td>
+          <td id="progressionPaceMile"></td>
+          <td id="progressionPaceKm"></td>
+        </tr>
+        <tr>
+          <td>Fartlek Training Pace</td>
+          <td id="fartlekPaceMile"></td>
+          <td id="fartlekPaceKm"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="mt-4">Speedwork</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Distance</th>
+        <th>Training Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>400m</td>
+        <td id="time400m"></td>
+      </tr>
+      <tr>
+        <td>600m</td>
+        <td id="time600m"></td>
+      </tr>
+      <tr>
+        <td>Yasso 800s</td>
+        <td id="time800m"></td>
+      </tr>
+      <tr>
+        <td>1200m</td>
+        <td id="time1200m"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<script src="{% static 'js/trainingpacescalculator.js' %}"></script>
+{% endblock %}
