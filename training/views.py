@@ -14,3 +14,6 @@ def race_improvement_calculator(request):
 
 def training_paces_calculator(request):
     return render(request, 'calculators/training_paces_calculator.html')
+
+def ready_for_race_day(request):
+    return render(request, 'calculators/ready_for_race_day.html')
