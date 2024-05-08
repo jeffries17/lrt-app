@@ -18,5 +18,10 @@ def training_paces_calculator(request):
 def ready_for_race_day(request):
     return render(request, 'calculators/ready_for_race_day.html')
 
+def training_zones(request):
+    return render(request, 'calculators/training_zones.html')
+
 def beginner_half_marathon(request):
     return render(request, 'plans/beginner_half_marathon.html')
+
+
