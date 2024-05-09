@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Running Pace Calculator</h1>
+    <p>Just enter your expected pace below, and find your expected finish time in the table.</p>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="paceMinutes">Pace (minutes per mile/km):</label>
+            <select class="form-control" id="paceMinutes">
+                <!-- Generating options from 3 to 25 minutes -->
+                ${[...Array(23)].map((_, i) => `<option>Minutes</option>`).join("")}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="paceSeconds">Pace (seconds):</label>
+            <select class="form-control" id="paceSeconds">
+                <!-- Generating options from 0 to 59 seconds -->
+                ${[...Array(60)].map((_, i) => `<option>Seconds</option>`).join("")}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="unit">Unit:</label>
+            <select class="form-control" id="unit">
+                <option value="mi">min/mile</option>
+                <option value="km">min/km</option>
+            </select>
+        </div>
+    </div>
+    <button class="btn btn-primary" onclick="calculateTimes()">Calculate</button>
+
+    <h2 class="mt-4">Estimated Race Finish Time</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Distance</th>
+                <th>Faster (-10s)</th>
+                <th>A Little Faster (-5s)</th>
+                <th>Selected Pace</th>
+                <th>A Little Slower (+5s)</th>
+                <th>Slower (+10s)</th>
+            </tr>
+        </thead>
+        <tbody id="resultsTable">
+            <!-- Results will be populated here by JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<script src="{% static 'js/running_pace_calculator.js' %}"></script>
+
+{% endblock %}

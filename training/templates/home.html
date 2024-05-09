@@ -19,8 +19,11 @@
             <div class="card border-light mb-3">
                 <div class="card-body">
                     <h2 class="card-title">Run Calculators</h2>
-                    <p class="card-text">Calculate pace, distance, and time for your runs.</p>
+                    <p class="card-text">Calculate pace, distance, and time for your ultramarathon.</p>
                     <a href="{% url 'ultramarathon_pace_calculator' %}" class="btn btn-primary">Ultramarathon Pace Calculator</a>
+                    <hr>  
+                    <p class="card-text">Get all your paces for your next race.</p>
+                    <a href="{% url 'run_pace_calculator' %}" class="btn btn-primary">Run Pace Calculator</a>
                     <hr>  
                     <p class="card-text">Figure out how much and what to eat during your trail race.</p>
                     <a href="{% url 'running_snack_calculator' %}" class="btn btn-primary">Running Snack Calculator</a>
