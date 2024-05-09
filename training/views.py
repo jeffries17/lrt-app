@@ -21,6 +21,9 @@ def ready_for_race_day(request):
 def training_zones(request):
     return render(request, 'calculators/training_zones.html')
 
+def run_calorie_calculator(request):
+    return render(request, 'calculators/run_calorie_calculator.html')
+
 def beginner_half_marathon(request):
     return render(request, 'plans/beginner_half_marathon.html')
 

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+      <h2>Run Calorie Calculator</h2>
+      <div class="row">
+          <div class="col-md-6">
+              <form id="calorieForm" class="border border-2 rounded p-3" style="border-color: #d6d6d6 !important;">
+                  <div class="mb-3 row">
+                      <label for="weight" class="col-sm-4 col-form-label">Weight</label>
+                      <div class="col-sm-4">
+                          <input type="number" class="form-control" id="weight" required>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="weightUnit" id="kg" value="kg" checked>
+                              <label class="form-check-label" for="kg">kg</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="weightUnit" id="lbs" value="lbs">
+                              <label class="form-check-label" for="lbs">lbs</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mb-3 row">
+                      <label for="distance" class="col-sm-4 col-form-label">Distance</label>
+                      <div class="col-sm-4">
+                          <input type="number" class="form-control" id="distance" required>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="distanceUnit" id="km" value="km" checked>
+                              <label class="form-check-label" for="km">km</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="distanceUnit" id="miles" value="miles">
+                              <label class="form-check-label" for="miles">miles</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mb-3 row">
+                      <label class="col-sm-4 col-form-label">Duration</label>
+                      <div class="col-sm-2">
+                          <label for="durationHours" class="form-label">Hours</label>
+                          <input type="number" class="form-control" id="durationHours" placeholder="00" required>
+                      </div>
+                      <div class="col-sm-2">
+                          <label for="durationMinutes" class="form-label">Minutes</label>
+                          <input type="number" class="form-control" id="durationMinutes" placeholder="00" required>
+                      </div>
+                      <div class="col-sm-2">
+                          <label for="durationSeconds" class="form-label">Seconds</label>
+                          <input type="number" class="form-control" id="durationSeconds" placeholder="00" required>
+                      </div>
+                  </div>
+                  <div class="mb-3 row">
+                      <label for="elevation" class="col-sm-4 col-form-label">Elevation Gain (optional)</label>
+                      <div class="col-sm-4">
+                          <input type="number" class="form-control" id="elevation" placeholder="0">
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="elevationUnit" id="meters" value="meters" checked>
+                              <label class="form-check-label" for="meters">meters</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="elevationUnit" id="feet" value="feet">
+                              <label class="form-check-label" for="feet">feet</label>
+                          </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
+
+              </form>
+              <div id="result" class="alert alert-success mt-3" style="display:none;"></div>
+          </div>
+          <div class="col-md-6">
+              <div class="border border-1 rounded-3 p-3" style="border-color: #ccc !important;">
+                  <h4>How It Works</h4>
+                  <p>This calculator helps you estimate the calories burned during your run, incorporating several key factors:</p>
+                  <ul>
+                      <li><strong>Weight:</strong> Calories burned are directly proportional to the body weight of the runner. We use your weight to calculate the total energy expenditure, converting pounds to kilograms if necessary.</li>
+                      <li><strong>Distance:</strong> The longer the distance, the more calories burned. This input adjusts the energy cost proportionally to the distance covered.</li>
+                      <li><strong>Duration:</strong> Total time spent running also affects calorie burn. We break down the input into hours, minutes, and seconds to compute the energy expenditure accurately.</li>
+                      <li><strong>Elevation Gain:</strong> Running uphill increases the energy cost significantly due to the additional effort required to overcome gravity. Elevation is optional and can be specified in meters or feet.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<script src="{% static 'js/runcaloriecalculator.js' %}"></script>
+
+{% endblock %}
