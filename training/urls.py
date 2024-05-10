@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, ultramarathon_pace_calculator, running_snack_calculator, race_improvement_calculator, training_paces_calculator, ready_for_race_day, beginner_half_marathon, training_zones, run_calorie_calculator, run_pace_calculator
+from .views import home, ultramarathon_pace_calculator, running_snack_calculator, race_improvement_calculator, training_paces_calculator, ready_for_race_day, beginner_half_marathon, training_zones, run_calorie_calculator, run_pace_calculator, age_grade_calculator
 
 urlpatterns = [
     path('', home, name='home'),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('training-zones/', training_zones, name='training_zones'),
     path('run-calorie-calculator/', run_calorie_calculator, name='run_calorie_calculator'),
     path('run-pace-calculator/', run_pace_calculator, name='run_pace_calculator'),
+    path('age-grade-calculator/', age_grade_calculator, name='age_grade_calculator')
 ]

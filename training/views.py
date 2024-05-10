@@ -27,6 +27,9 @@ def training_zones(request):
 def run_calorie_calculator(request):
     return render(request, 'calculators/run_calorie_calculator.html')
 
+def age_grade_calculator(request):
+    return render(request, 'calculators/age_grade_calculator.html')
+
 def beginner_half_marathon(request):
     return render(request, 'plans/beginner_half_marathon.html')
 

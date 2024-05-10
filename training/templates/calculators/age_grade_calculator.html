@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <h2>Age-Graded Calculator</h2>
+          <form id="ageCalculator">
+              <div class="form-group">
+                  <label for="age">Age:</label>
+                  <input type="number" class="form-control" id="age" required>
+              </div>
+              <div class="form-group">
+                  <label for="gender">Gender:</label>
+                  <select class="form-control" id="gender">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="distance">Previous Race Distance:</label>
+                <select class="form-control" id="distance">
+                    <option value="mile">1 Mile</option>
+                    <option value="5k">5K</option>
+                    <option value="8k">8K</option>
+                    <option value="10k">10K</option>
+                    <option value="12k">12K</option>
+                    <option value="15k">15K</option>
+                    <option value="10 mile">10 Mile</option>
+                    <option value="20k">20K</option>
+                    <option value="half-marathon">Half Marathon</option>
+                    <option value="25k">25K</option>
+                    <option value="30k">30K</option>
+                    <option value="marathon">Marathon</option>
+                </select>
+            </div>
+              <div class="form-group">
+                  <label for="hours">Hours:</label>
+                  <input type="number" class="form-control" id="hours">
+              </div>
+              <div class="form-group">
+                  <label for="minutes">Minutes:</label>
+                  <input type="number" class="form-control" id="minutes">
+              </div>
+              <div class="form-group">
+                  <label for="seconds">Seconds:</label>
+                  <input type="number" class="form-control" id="seconds">
+              </div>
+              <button type="button" class="btn btn-primary" onclick="calculateAgeGrading()">Calculate</button>
+          </form>
+          <div id="results" style="margin-top: 20px;">
+            <div class="col-md-12">
+                <h2>Predicted Race Times</h2>
+                <div id="predictedTimes"></div>
+            </div>
+              <p>Age Factor: <span id="ageFactor"></span></p>
+              <p>Age Graded Result: <span id="ageGradedResult"></span></p>
+              <p>Age Graded Score: <span id="ageGradedScore"></span></p>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <h2>Information</h2>
+          <p>This section can include detailed information about how the age grading works and the methodology behind it.</p>
+      </div>
+  </div>
+  <div class="container my-4">
+    <h2 class="mb-3">Understanding Age-Grading in Running</h2>
+    <p class="text-muted">
+        As runners age or compete across different sexes and distances, performance comparisons become challenging. Our age-grading calculator provides a standardized way to compare these performances irrespective of these variables.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>What is Age-Grading?</h4>
+            <p>
+                Age-grading measures and compares the quality of performances by adjusting for age, sex, and race distance. Through a sophisticated calculation, it produces a percentage that benchmarks any given performance against world records, allowing for fair comparisons across different categories.
+            </p>
+            <p>
+                This enables effective grading of your runs, where each distance has a unique age-graded score. It's an excellent tool for comparing performances of athletes who are not directly competitive due to age or gender differences, such as comparing a 50-year-old woman's marathon time with a 15-year-old boy's 5K time.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h4>Practical Applications of Age-Grading</h4>
+            <p>
+                Age grading is not just for comparing athletes; it's also invaluable for personal benchmarking. Runners can compare their performances over the years, estimate past or future capabilities, or even determine their best racing distances. For instance, a lower age-grading in a half marathon compared to shorter races might suggest a need to improve endurance.
+            </p>
+            <p>
+                The higher the age-grading percentage, the closer the performance is to the world-class standard, with 100% representing a world record-equivalent performance, 90% representing world class, 80% national class, 70% regional class, and 60% local class.            </p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/agegrade.js' %}"></script>
+
+{% endblock %}
