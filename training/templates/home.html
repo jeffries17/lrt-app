@@ -1,55 +1,96 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="container">
-    <h1>Welcome to Long Run Training</h1>
-    <p>Your one-stop hub for all running training and calculation tools.</p>
+    <h1>Create Your Custom Run Training Plan</h1>
+    <p>Generic plans = generic results. Create your custom plan based on how you run today to run your best tomorrow.</p>
 
     <div class="row">
-        <div class="col-md-6">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Beginner Half-Marathon Plan Generators</h2>
-                    <p class="card-text">Get started on your first half with this personalized training plan.</p>
-                    <a href="{% url 'beginner_half_marathon' %}" class="btn btn-primary">Beginner Half Marathon Plan</a>
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" id="planTypeTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="run-to-finish-tab" data-toggle="tab" href="#run-to-finish" role="tab" aria-controls="run-to-finish" aria-selected="true">Run To Finish</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="run-to-go-faster-tab" data-toggle="tab" href="#run-to-go-faster" role="tab" aria-controls="run-to-go-faster" aria-selected="false">Run To Go Faster</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="planTypeTabsContent">
+                <div class="tab-pane fade show active" id="run-to-finish" role="tabpanel" aria-labelledby="run-to-finish-tab">
+                    <form id="runToFinishForm" class="form-inline mt-3">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="distance">Distance</label>
+                            <select class="form-control" id="distance" required>
+                                <option value="5k">5k</option>
+                                <option value="10k">10k</option>
+                                <option value="half-marathon">Half Marathon</option>
+                                <option value="marathon">Full Marathon</option>
+                            </select>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="weeks">Weeks to Train</label>
+                            <input type="number" class="form-control" id="weeks" min="1" required placeholder="Weeks to Train">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="unit">Unit</label>
+                            <select class="form-control" id="unit" required>
+                                <option value="km">Kilometers</option>
+                                <option value="miles">Miles</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary mb-2" onclick="generateRunToFinishPlan()">Generate Plan</button>
+                    </form>
+                    <div id="trainingPlanOutput" class="mt-4"></div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Run Calculators</h2>
-                    <p class="card-text">Calculate pace, distance, and time for your ultramarathon.</p>
-                    <a href="{% url 'ultramarathon_pace_calculator' %}" class="btn btn-primary">Ultramarathon Pace Calculator</a>
-                    <hr>  
-                    <p class="card-text">Get all your paces for your next race.</p>
-                    <a href="{% url 'run_pace_calculator' %}" class="btn btn-primary">Run Pace Calculator</a>
-                    <hr>  
-                    <p class="card-text">Figure out how much and what to eat during your trail race.</p>
-                    <a href="{% url 'running_snack_calculator' %}" class="btn btn-primary">Running Snack Calculator</a>
-                    <hr>
-                    <p class="card-text">See how your training intensity will affect your next race time.</p>
-                    <a href="{% url 'race_improvement_calculator' %}" class="btn btn-primary">Race Improvement Calculator</a>
-                    <hr>
-                    <p class="card-text">Find the the right training paces and workouts to achieve your goal time.</p>
-                    <a href="{% url 'training_paces_calculator' %}" class="btn btn-primary">Training Paces Calculator</a>
-                    <hr>
-                    <p class="card-text">See if you've got time to perform how you want for that race.</p>
-                    <a href="{% url 'ready_for_race_day' %}" class="btn btn-primary">Ready For Race Day</a>
-                    <hr>
-                    <p class="card-text">Estimate your training zones for more effective workouts.</p>
-                    <a href="{% url 'training_zones' %}" class="btn btn-primary">Training Zones</a>
-                    <hr>
-                    <p class="card-text">Get your fueling strategy right by estimating how much you're burning.</p>
-                    <a href="{% url 'run_calorie_calculator' %}" class="btn btn-primary">Run Calorie Calculator</a>
-                    <hr>
-                    <p class="card-text">Racing above 30? See how your performance would've ranked in your prime.</p>
-                    <a href="{% url 'age_grade_calculator' %}" class="btn btn-primary">Age Grade Calculator</a>
+                <div class="tab-pane fade" id="run-to-go-faster" role="tabpanel" aria-labelledby="run-to-go-faster-tab">
+                    <form id="runToGoFasterForm" class="form-inline mt-3">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="previous-distance">Previous Race Distance</label>
+                            <select class="form-control" id="previous-distance" required>
+                                <option value="5k">5k</option>
+                                <option value="10k">10k</option>
+                                <option value="half-marathon">Half Marathon</option>
+                                <option value="marathon">Full Marathon</option>
+                            </select>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="previous-time">Previous Race Time</label>
+                            <input type="text" class="form-control" id="previous-time" placeholder="hh:mm:ss" required>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="new-distance">New Race Distance</label>
+                            <select class="form-control" id="new-distance" required>
+                                <option value="5k">5k</option>
+                                <option value="10k">10k</option>
+                                <option value="half-marathon">Half Marathon</option>
+                                <option value="marathon">Full Marathon</option>
+                            </select>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="weeks-faster">Weeks to Train</label>
+                            <input type="number" class="form-control" id="weeks-faster" min="1" required placeholder="Weeks to Train">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="unit-faster">Unit</label>
+                            <select class="form-control" id="unit-faster" required>
+                                <option value="km">Kilometers</option>
+                                <option value="miles">Miles</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary mb-2" onclick="generateRunToGoFasterPlan()">Generate Plan</button>
+                    </form>
+                    <div id="paceBreakdown" class="mt-4 p-3" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem;"></div>
+                    <div id="slider-container" class="mt-4">
+                        <label for="pace-slider">Adjust New Race Pace:</label>
+                        <input type="range" id="pace-slider" min="0" max="60" value="0" step="1">
+                        <span id="pace-slider-value">0</span> seconds per km
+                    </div>
+                    <div id="fasterPlanOutput" class="mt-4"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
+<script src="{% static 'js/trainingplangenerator.js' %}"></script>
 {% endblock %}

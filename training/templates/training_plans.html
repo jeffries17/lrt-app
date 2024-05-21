@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Training Plan Generators</h1>
+    <div class="row">
+        <!-- Repeat this block for each training plan -->
+        <div class="col-md-4">
+            <div class="card border-light mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Beginner Half Marathon Plan</h2>
+                    <p class="card-text">Get started on your first half with this personalized training plan.</p>
+                    <a href="{% url 'beginner_half_marathon' %}" class="btn btn-primary">Beginner Half Marathon Plan</a>
+                </div>
+            </div>
+        </div>
+        <!-- Add other training plan cards similarly -->
+    </div>
+    <div class="mt-4">
+        <h2>Frequently Asked Questions</h2>
+        <p>Answers to the most common questions about selecting the right training plan.</p>
+    </div>
+</div>
+{% endblock %}

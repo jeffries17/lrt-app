@@ -33,4 +33,8 @@ def age_grade_calculator(request):
 def beginner_half_marathon(request):
     return render(request, 'plans/beginner_half_marathon.html')
 
+def run_calculators(request):
+    return render(request, 'run_calculators.html')
 
+def training_plans(request):
+    return render(request, 'training_plans.html')
