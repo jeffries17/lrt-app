@@ -1,94 +1,234 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
-    <h1>Create Your Custom Run Training Plan</h1>
-    <p>Generic plans = generic results. Create your custom plan based on how you run today to run your best tomorrow.</p>
+<div class="container mt-5">
+    <div class="text-center mb-5 p-3 bg-primary text-white rounded">
+        <h1>Create Your Custom Run Training Plan</h1>
+        <p class="lead">Generic plans = generic results. Create your custom plan based on how you run today to run your best tomorrow.</p>
+    </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav nav-tabs" id="planTypeTabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="run-to-finish-tab" data-toggle="tab" href="#run-to-finish" role="tab" aria-controls="run-to-finish" aria-selected="true">Run To Finish</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="run-to-go-faster-tab" data-toggle="tab" href="#run-to-go-faster" role="tab" aria-controls="run-to-go-faster" aria-selected="false">Run To Go Faster</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="planTypeTabsContent">
-                <div class="tab-pane fade show active" id="run-to-finish" role="tabpanel" aria-labelledby="run-to-finish-tab">
-                    <form id="runToFinishForm" class="form-inline mt-3">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="distance">Distance</label>
-                            <select class="form-control" id="distance" required>
-                                <option value="5k">5k</option>
-                                <option value="10k">10k</option>
-                                <option value="half-marathon">Half Marathon</option>
-                                <option value="marathon">Full Marathon</option>
-                            </select>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="weeks">Weeks to Train</label>
-                            <input type="number" class="form-control" id="weeks" min="1" required placeholder="Weeks to Train">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="unit">Unit</label>
-                            <select class="form-control" id="unit" required>
-                                <option value="km">Kilometers</option>
-                                <option value="miles">Miles</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary mb-2" onclick="generateRunToFinishPlan()">Generate Plan</button>
-                    </form>
-                    <div id="trainingPlanOutput" class="mt-4"></div>
+    <div class="bg-light p-4 rounded mb-5">
+        <form id="runToFinishForm" class="mt-3">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="distance">Distance:</label>
+                    <select class="form-control" id="distance" required>
+                        <option value="5k">5k</option>
+                        <option value="10k">10k</option>
+                        <option value="half-marathon">Half Marathon</option>
+                        <option value="marathon">Full Marathon</option>
+                    </select>
                 </div>
-                <div class="tab-pane fade" id="run-to-go-faster" role="tabpanel" aria-labelledby="run-to-go-faster-tab">
-                    <form id="runToGoFasterForm" class="form-inline mt-3">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="previous-distance">Previous Race Distance</label>
-                            <select class="form-control" id="previous-distance" required>
-                                <option value="5k">5k</option>
-                                <option value="10k">10k</option>
-                                <option value="half-marathon">Half Marathon</option>
-                                <option value="marathon">Full Marathon</option>
-                            </select>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="previous-time">Previous Race Time</label>
-                            <input type="text" class="form-control" id="previous-time" placeholder="hh:mm:ss" required>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="new-distance">New Race Distance</label>
-                            <select class="form-control" id="new-distance" required>
-                                <option value="5k">5k</option>
-                                <option value="10k">10k</option>
-                                <option value="half-marathon">Half Marathon</option>
-                                <option value="marathon">Full Marathon</option>
-                            </select>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="weeks-faster">Weeks to Train</label>
-                            <input type="number" class="form-control" id="weeks-faster" min="1" required placeholder="Weeks to Train">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="unit-faster">Unit</label>
-                            <select class="form-control" id="unit-faster" required>
-                                <option value="km">Kilometers</option>
-                                <option value="miles">Miles</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary mb-2" onclick="generateRunToGoFasterPlan()">Generate Plan</button>
-                    </form>
-                    <div id="paceBreakdown" class="mt-4 p-3" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem;"></div>
-                    <div id="slider-container" class="mt-4">
-                        <label for="pace-slider">Adjust New Race Pace:</label>
-                        <input type="range" id="pace-slider" min="0" max="60" value="0" step="1">
-                        <span id="pace-slider-value">0</span> seconds per km
+                <div class="form-group col-md-4">
+                    <label for="weeks">Weeks to Train:</label>
+                    <input type="number" class="form-control" id="weeks" min="1" required placeholder="Weeks to Train">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="unit">Unit:</label>
+                    <select class="form-control" id="unit" required>
+                        <option value="km">Kilometers</option>
+                        <option value="miles">Miles</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="generateRunToFinishPlan()">Generate Plan</button>
+        </form>
+        <div id="trainingPlanOutput" class="mt-4"></div>
+    </div>
+
+    <div class="bg-light p-4 rounded mb-5">
+        <h2>About the Running Plan Generator</h2>
+        <hr>
+        <p>The running plan generator is a tool designed to help runners of all levels achieve their desired running distance and fitness goals. Whether you're just starting out or looking to take your running to the next level, the generator can provide you with a customized plan that takes into account your current level of fitness and the amount of time you have available to train.</p>
+        <p>When using the generator, you'll first be prompted to enter your current running distance in either miles or kilometers. This information helps the generator determine your starting point and create a plan that is challenging yet achievable. Next, you'll be asked to enter the desired distance you want to reach, along with the number of weeks you have to train. This information allows the generator to create a training plan that takes into account the amount of time you have available to reach your goal.</p>
+        <p>In addition to these basic details, the running plan generator also asks which days of the week you would prefer to run on. This information is used to create a schedule that fits around your existing commitments and allows you to prioritize your training according to your needs.</p>
+        <p>It's worth noting that the running plan generator is designed with an ideal timeframe of 4-24 weeks in mind. If you're looking to prepare for a race that falls within this time frame and covers a distance of 5 to 100 km, the generator should be able to provide you with a comprehensive and effective training plan. However, if you're looking to prepare for a race outside of this time frame or distance, the generator may not be as effective.</p>
+        <p>Overall, the running plan generator is a valuable tool for anyone looking to improve their running skills and reach their desired distance and fitness goals. Whether you're a beginner or a seasoned runner, the generator can help you create a customized training plan that is tailored to your needs and schedule.</p>
+    </div>
+
+    <div class="bg-light p-4 rounded mb-5">
+        <h2>Types of Training Runs</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Recovery Run</h3>
+                        <p class="card-text">Easy runs that help you recover from harder workouts.</p>
                     </div>
-                    <div id="fasterPlanOutput" class="mt-4"></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Race Pace</h3>
+                        <p class="card-text">Runs done at your goal race pace to prepare for race day.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Fartlek</h3>
+                        <p class="card-text">Speed play runs that mix intervals of fast running with slower recovery periods.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Hills</h3>
+                        <p class="card-text">Runs that include uphill segments to build strength and endurance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Progressive</h3>
+                        <p class="card-text">Runs that start slow and finish fast, building speed gradually.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Interval</h3>
+                        <p class="card-text">Runs that include repeated short bursts of high intensity running followed by rest or low intensity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Rest</h3>
+                        <p class="card-text">Days designated for complete rest to allow your body to recover.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Cross Training</h3>
+                        <p class="card-text">Activities other than running that help improve fitness and prevent injury.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="bg-light p-4 rounded mb-5">
+        <h2>Other Run Calculators</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Ultramarathon Pace Calculator</h3>
+                        <p class="card-text">Calculate pace, distance, and time for your ultramarathon.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Ultramarathon Pace Calculator</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Run Pace Calculator</h3>
+                        <p class="card-text">Get all your paces for your next race.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Run Pace Calculator</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Running Snack Calculator</h3>
+                        <p class="card-text">Figure out how much and what to eat during your trail race.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Running Snack Calculator</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Race Improvement Calculator</h3>
+                        <p class="card-text">See how your training intensity will affect your next race time.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Race Improvement Calculator</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Training Paces Calculator</h3>
+                        <p class="card-text">Find the right training paces and workouts to achieve your goal time.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Training Paces Calculator</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Ready For Race Day</h3>
+                        <p class="card-text">See if you've got time to perform how you want for that race.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Ready For Race Day</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Training Zones</h3>
+                        <p class="card-text">Estimate your training zones for more effective workouts.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Training Zones</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Run Calorie Calculator</h3>
+                        <p class="card-text">Get your fueling strategy right by estimating how much you're burning.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Run Calorie Calculator</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Age Grade Calculator</h3>
+                        <p class="card-text">Racing above 30? See how your performance would've ranked in your prime.</p>
+                        <a href="/run-calculators" class="btn btn-primary">Age Grade Calculator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light p-4 rounded mb-5">
+        <h2>Frequently Asked Questions</h2>
+        <hr>
+        <p>Answers to the most common questions about our training plans and generators.</p>
+        <h3>How to Use These Plans</h3>
+        <hr>
+        <p>Our training plans are designed to cater to all levels of runners. Here's how you can get the most out of them:</p>
+        <ul>
+            <li>Choose your race distance and the plan that fits your current fitness level.</li>
+            <li>Use our <a href="/run-calculators">Run Calculators</a> to fine-tune your paces and training zones.</li>
+            <li>Follow the weekly schedule, including rest days to prevent overtraining.</li>
+        </ul>
+        <h3>Difference Between Beginner, Intermediate, and Advanced Plans</h3>
+        <hr>
+        <p>Our plans are tailored to suit different levels of experience and goals:</p>
+        <ul>
+            <li><strong>Beginner:</strong> Focus on completing the race. Includes 3-4 days of training per week with essential mileage.</li>
+            <li><strong>Intermediate:</strong> Mixes different types of workouts, including speed work and long runs, with 4-5 days of training per week.</li>
+            <li><strong>Advanced:</strong> Includes goal or recent race paces, with 4-6 days of training per week, aiming to optimize performance.</li>
+        </ul>
+        <h3>Contact Us</h3>
+        <hr>
+        <p>If you have suggestions or need help, contact us at <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
     </div>
 </div>
 

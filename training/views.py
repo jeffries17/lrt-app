@@ -1,7 +1,60 @@
+import os
+import json
+import logging
+from django.http import JsonResponse, HttpResponse
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
+import pdfkit
+from django.conf import settings
+
+logger = logging.getLogger(__name__)
+
+@csrf_exempt
+def generate_pdf(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            plan_html = data.get('plan_html')
+            email = data.get('email', None)
+
+            logger.info('Generating PDF')
+            logger.info('HTML content: %s', plan_html[:100])  # Log first 100 characters for debugging
+
+            # Use the configured path for wkhtmltopdf
+            pdfkit_config = pdfkit.configuration(wkhtmltopdf=settings.WKHTMLTOPDF_CMD)
+
+            # Generate PDF
+            pdf = pdfkit.from_string(plan_html, False, configuration=pdfkit_config, options=settings.PDFKIT_OPTIONS)
+            logger.info('PDF generated successfully, size: %d bytes', len(pdf))
+
+            if email:
+                # Send email with PDF attachment
+                email_message = EmailMessage(
+                    'Your Custom Training Plan',
+                    'Please find attached your custom training plan.',
+                    settings.EMAIL_HOST_USER,
+                    [email],
+                )
+                email_message.attach('training_plan.pdf', pdf, 'application/pdf')
+                email_message.send()
+                logger.info('Email sent successfully to %s', email)
+                return JsonResponse({'message': 'Email sent successfully!'})
+            else:
+                response = HttpResponse(pdf, content_type='application/pdf')
+                response['Content-Disposition'] = 'attachment; filename="training_plan.pdf"'
+                return response
+        except Exception as e:
+            logger.error('Error generating PDF and sending email: %s', e)
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 def home(request):
     return render(request, 'home.html')
+
+def about(request):
+    return render(request, 'about.html')
 
 def ultramarathon_pace_calculator(request):
     return render(request, 'calculators/ultramarathon_pace_calculator.html')

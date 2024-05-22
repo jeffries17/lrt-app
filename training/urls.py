@@ -1,12 +1,14 @@
 from django.urls import path
 from .views import (
-    home, ultramarathon_pace_calculator, run_pace_calculator, running_snack_calculator, 
+    home, about, generate_pdf, ultramarathon_pace_calculator, run_pace_calculator, running_snack_calculator, 
     race_improvement_calculator, training_paces_calculator, ready_for_race_day, beginner_half_marathon, 
     training_zones, run_calorie_calculator, age_grade_calculator, run_calculators, training_plans
 )
 
 urlpatterns = [
     path('', home, name='home'),
+    path('about/', about, name='about'),
+    path('generate_pdf/', generate_pdf, name='generate_pdf'),
     path('ultramarathon-pace-calculator/', ultramarathon_pace_calculator, name='ultramarathon_pace_calculator'),
     path('run-pace-calculator/', run_pace_calculator, name='run_pace_calculator'),
     path('running-snack-calculator/', running_snack_calculator, name='running_snack_calculator'),

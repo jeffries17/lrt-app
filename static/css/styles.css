@@ -1,3 +1,4 @@
+/* Existing styles */
 .card {
   margin: 20px;
   padding: 20px;
@@ -22,4 +23,42 @@
   width: 30px;
   height: 30px;
   margin: 5px;
+}
+
+/* New styles for the layout */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
+.footer {
+  background-color: #f8f9fa; /* Match the header color */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.table-bordered thead th {
+  background-color: #007bff;
+  color: white;
+}
+
+.table-bordered tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-bordered tbody tr:nth-of-type(even) {
+  background-color: #fff;
+}
+
+.table-bordered td, .table-bordered th {
+  text-align: center;
+  vertical-align: middle;
 }

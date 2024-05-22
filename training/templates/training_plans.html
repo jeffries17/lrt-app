@@ -1,24 +1,99 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>Training Plan Generators</h1>
-    <div class="row">
-        <!-- Repeat this block for each training plan -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Beginner Half Marathon Plan</h2>
-                    <p class="card-text">Get started on your first half with this personalized training plan.</p>
-                    <a href="{% url 'beginner_half_marathon' %}" class="btn btn-primary">Beginner Half Marathon Plan</a>
+<div class="container mt-5">
+    <div class="text-center mb-5 p-3 bg-primary text-white rounded">
+        <h1>Training Plan Generators</h1>
+        <p class="lead">Choose your race and get a personalized training plan to achieve your running goals.</p>
+    </div>
+
+    <div class="bg-light p-4 rounded mb-5">
+        <div class="row">
+            <!-- One Mile Training Plans -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">One Mile</h3>
+                        <p class="card-text">Train to run a faster mile with our targeted plan.</p>
+                        <a href="/training-plans" class="btn btn-primary">Run a Faster Mile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 10k Training Plans -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">10k</h3>
+                        <p class="card-text">Get ready for your 10k race with tailored plans.</p>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Beginner</a>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Intermediate</a>
+                        <a href="/training-plans" class="btn btn-primary">Advanced</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Half-Marathon Training Plans -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Half-Marathon</h3>
+                        <p class="card-text">Train for your half-marathon with customized plans.</p>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Beginner</a>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Intermediate</a>
+                        <a href="/training-plans" class="btn btn-primary">Advanced</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Marathon Training Plans -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Marathon</h3>
+                        <p class="card-text">Prepare for your marathon with our expert plans.</p>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Beginner</a>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Intermediate</a>
+                        <a href="/training-plans" class="btn btn-primary">Advanced</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Ultramarathon Training Plans -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Ultramarathon</h3>
+                        <p class="card-text">Take on the ultimate challenge with these plans.</p>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Run Your First 50k</a>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Run Your First 50 Mile</a>
+                        <a href="/training-plans" class="btn btn-primary mb-2">Run Your First 100k</a>
+                        <a href="/training-plans" class="btn btn-primary">Run Your First 100 Mile</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Add other training plan cards similarly -->
     </div>
-    <div class="mt-4">
+
+    <div class="bg-light p-4 rounded mb-5">
         <h2>Frequently Asked Questions</h2>
+        <hr>
         <p>Answers to the most common questions about selecting the right training plan.</p>
+        <h3>How to Use These Plans</h3>
+        <hr>
+        <p>Our training plans are designed to cater to all levels of runners. Here's how you can get the most out of them:</p>
+        <ul>
+            <li>Choose your race distance and the plan that fits your current fitness level.</li>
+            <li>Use our <a href="/run-calculators">Run Calculators</a> to fine-tune your paces and training zones.</li>
+            <li>Follow the weekly schedule, including rest days to prevent overtraining.</li>
+        </ul>
+        <h3>Difference Between Beginner, Intermediate, and Advanced Plans</h3>
+        <hr>
+        <p>Our plans are tailored to suit different levels of experience and goals:</p>
+        <ul>
+            <li><strong>Beginner:</strong> Focus on completing the race. Includes 3-4 days of training per week with essential mileage.</li>
+            <li><strong>Intermediate:</strong> Mixes different types of workouts, including speed work and long runs, with 4-5 days of training per week.</li>
+            <li><strong>Advanced:</strong> Includes goal or recent race paces, with 4-6 days of training per week, aiming to optimize performance.</li>
+        </ul>
+        <h3>Contact Us</h3>
+        <hr>
+        <p>If you have suggestions or need help, contact us at <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
     </div>
 </div>
 {% endblock %}

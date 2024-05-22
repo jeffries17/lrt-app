@@ -1,107 +1,126 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>Run Calculators</h1>
-    <div class="row">
-        <!-- Ultramarathon Pace Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Ultramarathon Pace Calculator</h2>
-                    <p class="card-text">Calculate pace, distance, and time for your ultramarathon.</p>
-                    <a href="{% url 'ultramarathon_pace_calculator' %}" class="btn btn-primary">Ultramarathon Pace Calculator</a>
+<div class="container mt-5">
+    <div class="text-center mb-5 p-3 bg-primary text-white rounded">
+        <h1>Run Calculators</h1>
+        <p class="lead">Optimize your running performance with our range of calculators designed to help you train smarter and run better.</p>
+    </div>
+
+    <div class="bg-light p-4 rounded mb-5">
+        <div class="row">
+            <!-- Ultramarathon Pace Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Ultramarathon Pace Calculator</h3>
+                        <p class="card-text">Calculate pace, distance, and time for your ultramarathon.</p>
+                        <a href="{% url 'ultramarathon_pace_calculator' %}" class="btn btn-primary">Ultramarathon Pace Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Run Pace Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Run Pace Calculator</h2>
-                    <p class="card-text">Get all your paces for your next race.</p>
-                    <a href="{% url 'run_pace_calculator' %}" class="btn btn-primary">Run Pace Calculator</a>
+            <!-- Run Pace Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Run Pace Calculator</h3>
+                        <p class="card-text">Get all your paces for your next race.</p>
+                        <a href="{% url 'run_pace_calculator' %}" class="btn btn-primary">Run Pace Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Running Snack Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Running Snack Calculator</h2>
-                    <p class="card-text">Figure out how much and what to eat during your trail race.</p>
-                    <a href="{% url 'running_snack_calculator' %}" class="btn btn-primary">Running Snack Calculator</a>
+            <!-- Running Snack Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Running Snack Calculator</h3>
+                        <p class="card-text">Figure out how much and what to eat during your trail race.</p>
+                        <a href="{% url 'running_snack_calculator' %}" class="btn btn-primary">Running Snack Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Race Improvement Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Race Improvement Calculator</h2>
-                    <p class="card-text">See how your training intensity will affect your next race time.</p>
-                    <a href="{% url 'race_improvement_calculator' %}" class="btn btn-primary">Race Improvement Calculator</a>
+            <!-- Race Improvement Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Race Improvement Calculator</h3>
+                        <p class="card-text">See how your training intensity will affect your next race time.</p>
+                        <a href="{% url 'race_improvement_calculator' %}" class="btn btn-primary">Race Improvement Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Training Paces Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Training Paces Calculator</h2>
-                    <p class="card-text">Find the right training paces and workouts to achieve your goal time.</p>
-                    <a href="{% url 'training_paces_calculator' %}" class="btn btn-primary">Training Paces Calculator</a>
+            <!-- Training Paces Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Training Paces Calculator</h3>
+                        <p class="card-text">Find the right training paces and workouts to achieve your goal time.</p>
+                        <a href="{% url 'training_paces_calculator' %}" class="btn btn-primary">Training Paces Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Ready For Race Day -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Ready For Race Day</h2>
-                    <p class="card-text">See if you've got time to perform how you want for that race.</p>
-                    <a href="{% url 'ready_for_race_day' %}" class="btn btn-primary">Ready For Race Day</a>
+            <!-- Ready For Race Day -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Ready For Race Day</h3>
+                        <p class="card-text">See if you've got time to perform how you want for that race.</p>
+                        <a href="{% url 'ready_for_race_day' %}" class="btn btn-primary">Ready For Race Day</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Training Zones -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Training Zones</h2>
-                    <p class="card-text">Estimate your training zones for more effective workouts.</p>
-                    <a href="{% url 'training_zones' %}" class="btn btn-primary">Training Zones</a>
+            <!-- Training Zones -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Training Zones</h3>
+                        <p class="card-text">Estimate your training zones for more effective workouts.</p>
+                        <a href="{% url 'training_zones' %}" class="btn btn-primary">Training Zones</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Run Calorie Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Run Calorie Calculator</h2>
-                    <p class="card-text">Get your fueling strategy right by estimating how much you're burning.</p>
-                    <a href="{% url 'run_calorie_calculator' %}" class="btn btn-primary">Run Calorie Calculator</a>
+            <!-- Run Calorie Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Run Calorie Calculator</h3>
+                        <p class="card-text">Get your fueling strategy right by estimating how much you're burning.</p>
+                        <a href="{% url 'run_calorie_calculator' %}" class="btn btn-primary">Run Calorie Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Age Grade Calculator -->
-        <div class="col-md-4">
-            <div class="card border-light mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Age Grade Calculator</h2>
-                    <p class="card-text">Racing above 30? See how your performance would've ranked in your prime.</p>
-                    <a href="{% url 'age_grade_calculator' %}" class="btn btn-primary">Age Grade Calculator</a>
+            <!-- Age Grade Calculator -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-light h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Age Grade Calculator</h3>
+                        <p class="card-text">Racing above 30? See how your performance would've ranked in your prime.</p>
+                        <a href="{% url 'age_grade_calculator' %}" class="btn btn-primary">Age Grade Calculator</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="mt-4">
+
+    <div class="bg-light p-4 rounded mb-5">
         <h2>How to Use These Calculators</h2>
-        <p>Instructions on how to use the calculators.</p>
+        <hr>
+        <p>Our calculators are designed to help you optimize your training and race performance. Here's a brief guide on how to use them:</p>
         <h3>Order of Use</h3>
-        <p>Explain the recommended order of using the calculators.</p>
+        <hr>
+        <p>For the best results, we recommend using the calculators in the following order:</p>
+        <ul>
+            <li>Start with the <strong>Training Paces Calculator</strong> to establish your training paces.</li>
+            <li>Use the <strong>Training Zones Calculator</strong> to understand your training intensity.</li>
+            <li>Plan your race day nutrition with the <strong>Running Snack Calculator</strong> and the <strong>Run Calorie Calculator</strong>.</li>
+            <li>Utilize the <strong>Race Improvement Calculator</strong> to see how your training intensity impacts your race performance.</li>
+            <li>Check your readiness with the <strong>Ready For Race Day</strong> calculator.</li>
+            <li>For longer races, use the <strong>Ultramarathon Pace Calculator</strong>.</li>
+            <li>Finally, see how age affects your performance with the <strong>Age Grade Calculator</strong>.</li>
+        </ul>
         <h3>Contact Us</h3>
-        <p>If you have suggestions or need help, contact us at <a href="mailto:support@longruntraining.com">support@longruntraining.com</a>.</p>
+        <hr>
+        <p>If you have suggestions or need help, contact us at <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
     </div>
 </div>
 {% endblock %}

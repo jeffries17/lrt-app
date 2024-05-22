@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <!-- Header -->
+    <div class="text-center mb-5 p-3 bg-primary text-white rounded">
+        <h1>About Long Run Training</h1>
+    </div>
+
+    <!-- About Long Run Training Section -->
+    <div class="mb-5">
+        <h2>What is Long Run Training?</h2>
+        <hr>
+        <p>Long Run Training is your comprehensive resource for all things running. Whether you’re a beginner looking to cross your first finish line or an experienced runner aiming to shave minutes off your marathon time, we’ve got you covered. Our site offers:</p>
+        <ul>
+            <li><strong>Run Calculators:</strong> Fine-tune your training with personalized pace and zone training.</li>
+            <li><strong>Training Plan Generators:</strong> Custom plans for all levels and distances, from 10Ks to ultra-marathons.</li>
+            <li><strong>Injury Prevention Tips:</strong> Learn how to avoid common injuries and run smarter.</li>
+        </ul>
+        <p>Our goal is to help you get the most out of your training, reduce injuries, and run better—whether that means faster, longer, or simply more enjoyably.</p>
+    </div>
+
+    <!-- About the Founder Section -->
+    <div class="mb-5">
+        <h2>About the Founder</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{% static 'images/alex_auburn_canyons.jpg' %}" class="img-fluid rounded-circle" alt="Profile Photo of Alex Jeffries">
+            </div>
+            <div class="col-md-9">
+                <p>Hi, I’m Alex, the founder of Long Run Training. I’ve been a lifelong runner since 7th grade, exploring the trails around Folsom Lake in California. Over the years, I’ve experienced the highs of completing numerous marathons and ultra-marathons, including a spontaneous entry into the Rio de Janeiro marathon the day before the race!</p>
+                <p>I’ve also faced my fair share of injuries from undertraining, overtraining, and everything in between—ankles, knees, hamstrings, you name it. As I’ve entered my mid-30s, recovery has slowed down, prompting me to be more proactive with my care and more thoughtful about my training.</p>
+                <p>I realized that many of my problems stemmed from generic plans that lacked customization. That’s why I created Long Run Training—to provide runners of all skill levels with personalized tools and plans to ensure they are training within their limits and pushing just right, if they choose to.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- How to Use This Site Section -->
+    <div class="mb-5">
+        <h2>How to Use This Site</h2>
+        <hr>
+        <p>Our training plans include generators for custom plans for beginner, intermediate, and advanced 10Ks, half-marathons, marathons, and ultras:</p>
+        <ul>
+            <li><strong>Beginner Plans:</strong> Focus on the mileage necessary to get you across the finish line.</li>
+            <li><strong>Intermediate Plans:</strong> Mix up the training for a tougher regimen and a more satisfying result.</li>
+            <li><strong>Advanced Plans:</strong> Incorporate paces from recent races or goal paces to guide advanced workouts.</li>
+        </ul>
+        <p>The run calculators help you fine-tune your plans with paces, zone training, workout times, and more.</p>
+        <p>For any questions or suggestions, email me at <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+    </div>
+</div>
+{% endblock %}

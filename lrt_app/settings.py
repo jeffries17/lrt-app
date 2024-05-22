@@ -3,6 +3,8 @@ from pathlib import Path
 import os
 import sys
 import dj_database_url
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,7 +20,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # DEBUG = os.getenv("DEBUG", "False") == "True"
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,longruntraining.com, ww.longruntraining.com").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,longruntraining.com, www.longruntraining.com").split(",")
 
 # Application definition
 
@@ -174,3 +176,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+PDFKIT_OPTIONS = {
+    'page-size': 'Letter',
+    'encoding': 'UTF-8',
+    'no-outline': None
+}
+
+WKHTMLTOPDF_CMD = '/usr/local/bin/wkhtmltopdf'
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.dreamhost.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
