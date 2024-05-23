@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <td><a href="#rest">Rest or Crosstrain</a></td>
           <td><a href="#easy">Easy</a> - ${easyDist}${unitValue}</td>
           <td><a href="#${getRandomSession(longRunSessions).toLowerCase()}">${getRandomSession(longRunSessions)}</a> - ${longDist}${unitValue}</td>
-          <td>${(parseFloat(easyDist) + parseFloat(medDist) + parseFloat(speedDist) + parseFloat(longDist)).toFixed(2)}${unitValue}</td>
+          <td>${(parseFloat(easyDist*2) + parseFloat(medDist) + parseFloat(speedDist) + parseFloat(longDist)).toFixed(2)}${unitValue}</td>
         </tr>
       `;
       return row;
