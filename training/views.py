@@ -20,12 +20,10 @@ def generate_pdf(request):
             email = data.get('email', None)
 
             logger.info('Generating PDF')
-            logger.info('HTML content: %s', plan_html[:100])  # Log first 100 characters for debugging
+            logger.info('HTML content: %s', plan_html[:100])  
 
-            # Use the configured path for wkhtmltopdf
             pdfkit_config = pdfkit.configuration(wkhtmltopdf=settings.WKHTMLTOPDF_CMD)
 
-            # Generate PDF
             pdf = pdfkit.from_string(plan_html, False, configuration=pdfkit_config, options=settings.PDFKIT_OPTIONS)
             logger.info('PDF generated successfully, size: %d bytes', len(pdf))
 
@@ -85,6 +83,9 @@ def age_grade_calculator(request):
 
 def beginner_half_marathon(request):
     return render(request, 'plans/beginner_half_marathon.html')
+
+def beginner_marathon(request):
+    return render(request, 'plans/beginner_marathon.html')
 
 def run_calculators(request):
     return render(request, 'run_calculators.html')
