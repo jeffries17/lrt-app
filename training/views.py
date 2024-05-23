@@ -1,13 +1,15 @@
-import os
+from django.shortcuts import render
 import json
 import logging
 from django.http import JsonResponse, HttpResponse
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render
-import pdfkit
+from weasyprint import HTML, CSS
 from django.conf import settings
+from django.templatetags.static import static
+from django.contrib.staticfiles import finders
+
 
 logger = logging.getLogger(__name__)
 
@@ -17,14 +19,30 @@ def generate_pdf(request):
         try:
             data = json.loads(request.body)
             plan_html = data.get('plan_html')
+            distance = data.get('distance')
+            weeks = data.get('weeks')
             email = data.get('email', None)
 
+            if not plan_html or not distance or not weeks:
+                return JsonResponse({'error': 'plan_html, distance, and weeks are required'}, status=400)
+
             logger.info('Generating PDF')
-            logger.info('HTML content: %s', plan_html[:100])  
+            logger.info('HTML content: %s', plan_html[:100])
 
-            pdfkit_config = pdfkit.configuration(wkhtmltopdf=settings.WKHTMLTOPDF_CMD)
+            # Render the HTML template with the plan_html content, distance, and weeks
+            context = {
+                'plan_html': plan_html,
+                'distance': distance,
+                'weeks': weeks
+            }
+            full_html = render_to_string('training_plan_template.html', context)
 
-            pdf = pdfkit.from_string(plan_html, False, configuration=pdfkit_config, options=settings.PDFKIT_OPTIONS)
+            # Get the absolute path for the CSS file
+            css_path = finders.find('css/training_plan.css')
+            logger.info('CSS Path: %s', css_path)
+
+            # Generate PDF from the rendered HTML using WeasyPrint and external CSS
+            pdf = HTML(string=full_html).write_pdf(stylesheets=[CSS(css_path)])
             logger.info('PDF generated successfully, size: %d bytes', len(pdf))
 
             if email:
@@ -44,7 +62,7 @@ def generate_pdf(request):
                 response['Content-Disposition'] = 'attachment; filename="training_plan.pdf"'
                 return response
         except Exception as e:
-            logger.error('Error generating PDF and sending email: %s', e)
+            logger.error('Error generating PDF and sending email: %s', e, exc_info=True)
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Invalid request'}, status=400)
 

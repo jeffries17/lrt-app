@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+}
+
+.plan-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#plan-content .week {
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#plan-content .week-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-color: #333;
+  color: white;
+  padding: 5px;
+}
+
+#plan-content .day {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#plan-content .day:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#plan-content .day:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #555;
+}

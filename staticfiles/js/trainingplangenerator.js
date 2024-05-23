@@ -386,14 +386,14 @@ function extractPlanData() {
 
 function savePlan() {
   const planHtml = document.getElementById('trainingPlanOutput').innerHTML;
-  const distance = document.getElementById('selectedDistance').value;
-  const weeks = document.getElementById('selectedWeeks').value;
+  const distance = "Marathon"; // Replace with the actual distance selected by the user
+  const weeks = 12; // Replace with the actual number of weeks
 
   fetch('/generate_pdf/', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
+          'X-CSRFToken': getCookie('csrftoken') // Ensure you include the CSRF token
       },
       body: JSON.stringify({
           plan_html: planHtml,
@@ -422,8 +422,8 @@ function savePlan() {
 
 function sendPlanViaEmail() {
   const planHtml = document.getElementById('trainingPlanOutput').innerHTML;
-  const distance = document.getElementById('selectedDistance').value;
-  const weeks = document.getElementById('selectedWeeks').value;
+  const distance = "Marathon"; // Replace with the actual distance selected by the user
+  const weeks = 12; // Replace with the actual number of weeks
   const email = prompt("Please enter your email address:");
 
   if (email) {
@@ -431,7 +431,7 @@ function sendPlanViaEmail() {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
-              'X-CSRFToken': getCookie('csrftoken')
+              'X-CSRFToken': getCookie('csrftoken') // Ensure you include the CSRF token
           },
           body: JSON.stringify({
               plan_html: planHtml,
@@ -455,12 +455,12 @@ function sendPlanViaEmail() {
 function addDownloadAndEmailButtons() {
   const existingDownloadButton = document.getElementById('downloadButton');
   if (existingDownloadButton) {
-      existingDownloadButton.remove();
+      existingDownloadButton.remove();  // Remove existing button if it exists
   }
 
   const existingEmailButton = document.getElementById('emailButton');
   if (existingEmailButton) {
-      existingEmailButton.remove();
+      existingEmailButton.remove();  // Remove existing button if it exists
   }
 
   const downloadButton = document.createElement('button');
@@ -477,11 +477,12 @@ function addDownloadAndEmailButtons() {
   emailButton.innerText = 'Send Plan via Email';
   emailButton.onclick = sendPlanViaEmail;
 
-  document.getElementById('trainingPlanOutput').insertAdjacentElement('afterend', downloadButton);
+  trainingPlanOutput.insertAdjacentElement('afterend', downloadButton);
   downloadButton.insertAdjacentElement('afterend', emailButton);
 }
 
 window.generateRunToFinishPlan = generateRunToFinishPlan;
+window.generateRunToGoFasterPlan = generateRunToGoFasterPlan;
 window.savePlan = savePlan;
 window.sendPlanViaEmail = sendPlanViaEmail;
 });

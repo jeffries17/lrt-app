@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Plan</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/training_plan.css' %}">
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'path/to/logo.png' %}" alt="Logo" class="logo">
+        <h1>Training Plan</h1>
+    </div>
+    <div class="plan-title">
+        Your {{ distance }} Training Plan: {{ weeks }} Weeks To Race Day!
+    </div>
+    <div id="plan-content">
+        {{ plan_html|safe }}
+    </div>
+    <div class="footer">
+        Plan Created by Long Run Training
+    </div>
+</body>
+</html>
