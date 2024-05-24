@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-4">
+  <h1 class="mb-3">Mile Time Improvement Plan Generator</h1>
+  <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-body">
+                  <form id="mileForm">
+                      <div class="form-group">
+                          <label for="currentMinutes">Current Mile Time:</label>
+                          <div class="input-group">
+                              <select class="form-control" id="currentMinutes"></select>
+                              <select class="form-control" id="currentSeconds"></select>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="unit">Unit:</label>
+                          <select class="form-control" id="unit">
+                              <option value="miles">Miles</option>
+                              <option value="kilometers">Kilometers</option>
+                          </select>
+                      </div>
+                      <button type="button" class="btn btn-primary" id="generatePlan">Generate Plan</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">How It Works</h5>
+                  <p class="card-text">
+                      Enter your current mile time using the dropdown menus. This tool will generate a training plan to help you improve your mile time by 5%. The plan includes target paces for 400m, 800m, and 1200m intervals based on your goal time.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row mt-4">
+      <div class="col-12">
+          <h3>Your Training Plan:</h3>
+          <div id="planOutput" class="mt-3" data-csv-url="{% static 'csv/mileplan.csv' %}">
+              <!-- Training plan will be displayed here -->
+          </div>
+      </div>
+  </div>
+</div>
+
+<script src="{% static 'js/mile_training.js' %}"></script>
+
+{% endblock %}

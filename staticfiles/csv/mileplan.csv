@@ -1,0 +1,104 @@
+Period,Week,Day,Activity,Details
+Preparation,Week 1,Sunday,Run,Run 5-6 days; Increase long run by 5 min
+Preparation,Week 1,Monday,Run,
+Preparation,Week 1,Tuesday,Warm-up A,Fartlek Relays CORE/Stretch
+Preparation,Week 1,Wednesday,Warm-up,Circuit Training Run Strides/Stretch
+Preparation,Week 1,Thursday,Hills,
+Preparation,Week 1,Friday,Run,
+Preparation,Week 1,Saturday,Run,
+
+Preparation,Week 2,Sunday,Run,Run 5-6 days; Increase long run by 5 min
+Preparation,Week 2,Monday,Warm-up A,Mile Repeats CORE/Stretch
+Preparation,Week 2,Tuesday,Weight Work,
+Preparation,Week 2,Wednesday,Warm-up,Aerobic Ladders Strides/Stretch
+Preparation,Week 2,Thursday,Warm-up,Hills
+Preparation,Week 2,Friday,Run,
+Preparation,Week 2,Saturday,Run,
+
+Preparation,Week 3,Sunday,Run,Run 5-6 days; Increase long run by 5 min
+Preparation,Week 3,Monday,Weight Work,
+Preparation,Week 3,Tuesday,Warm-up A,Mile/400 Tags CORE/Stretch
+Preparation,Week 3,Wednesday,Weight Work,
+Preparation,Week 3,Thursday,Warm-up,Active Rest 400’s Strides/Stretch
+Preparation,Week 3,Friday,Hills,
+Preparation,Week 3,Saturday,Run,
+
+Preparation,Week 4,Sunday,Run,Run 6 days; Increase long run by 5 min
+Preparation,Week 4,Monday,Weight Work,
+Preparation,Week 4,Tuesday,Warm-up A,Mile Repeats CORE/Stretch
+Preparation,Week 4,Wednesday,Warm-up,35-45 minute run Strides/Crazy Feet Stretch
+Preparation,Week 4,Thursday,Warm-up B,Parlauff Relays Warm-down CORE/Stretch
+Preparation,Week 4,Friday,Weight Work,Team Warm-up 40-60 minute run Strides/Crazy Feet Stretch
+Preparation,Week 4,Saturday,Run,
+
+Build,Week 5,Sunday,Long Run,
+Build,Week 5,Monday,Rest,
+Build,Week 5,Tuesday,Warm-up A,3200 Pace Recovery CORE/Weights
+Build,Week 5,Wednesday,Team Warm-up,40-50 minute run Strides/Crazy Feet Stretch
+Build,Week 5,Thursday,Warm-up B,800 Pace Recovery CORE/Weights
+Build,Week 5,Friday,Team Warm-up,40-50 minute run Strides/Crazy Feet Stretch
+Build,Week 5,Saturday,PR Test,3200
+
+Build,Week 6,Sunday,Long Run,
+Build,Week 6,Monday,Rest,
+Build,Week 6,Tuesday,Warm-up A,5000 Pace Recovery CORE/Weights
+Build,Week 6,Wednesday,Team Warm-up,400 Pace 20 minute run Stretch
+Build,Week 6,Thursday,Team Warm-up,40-50 minute run Strides/Stretch
+Build,Week 6,Friday,Warm-up B,1600 Pace Recovery CORE/Weights
+Build,Week 6,Saturday,Long Run,
+
+Build,Week 7,Sunday,Rest,
+Build,Week 7,Monday,Warm-up A,3200 Pace Recovery CORE/Weights
+Build,Week 7,Tuesday,Team Warm-up,40-50 minute run Strides/Stretch
+Build,Week 7,Wednesday,PR Test,1600
+Build,Week 7,Thursday,Warm-up B,5000 Pace Recovery CORE/Weights
+Build,Week 7,Friday,Team Warm-up,30-40 minute run Strides/Stretch
+Build,Week 7,Saturday,PR Test,800
+
+Build,Week 8,Sunday,Long Run,
+Build,Week 8,Monday,Warm-up A,800 Pace Recovery CORE/Weights
+Build,Week 8,Tuesday,Team Warm-up,30-40 minute run Strides/Stretch
+Build,Week 8,Wednesday,Warm-up B,5000 Pace Recovery CORE/Weights
+Build,Week 8,Thursday,Team Warm-up,30 minute run Strides/Stretch
+Build,Week 8,Saturday,PR Test,3200
+
+Peaking,Week 9,Sunday,Long Run (65 – 85 min),
+Peaking,Week 9,Monday,Team Practice,Warm-up A 3 x (600/200) Recovery CORE/Weights
+Peaking,Week 9,Tuesday,Team Warm-up,40-50 minute run Strides/Crazy Feet
+Peaking,Week 9,Wednesday,Warm-up B,Tempo Loops 150 build-ups CORE/Weights
+Peaking,Week 9,Thursday,Team Warm-up,30 minute run Strides/Stretch
+Peaking,Week 9,Saturday,PR Test,800
+Peaking,Week 9,Saturday,REST,
+
+Peaking,Week 10,Sunday,Long Run (70 – 90 min),
+Peaking,Week 10,Monday,Warm-up A,Accelerations Recovery CORE/Weights
+Peaking,Week 10,Tuesday,Team Warm-up,25 minute run Strides/Stretch
+Peaking,Week 10,Wednesday,PR Test,1600
+Peaking,Week 10,Thursday,Team Warm-up,40 minute run Strides/Stretch
+Peaking,Week 10,Saturday,Warm-up B,Tempo Loops 150 build-ups CORE/Weights
+Peaking,Week 10,Saturday,Or MOC Prep,
+
+Peaking,Week 11,Sunday,REST,
+Peaking,Week 11,Monday,Warm-up A,Endless 200’s Recovery CORE/Weights
+Peaking,Week 11,Tuesday,Team Warm-up,30 minute run Strides/Stretch
+Peaking,Week 11,Wednesday,Warm-up B,Tempo Loops 150 build-ups CORE/Weights
+Peaking,Week 11,Thursday,Team Warm-up,30 minute run Strides/Stretch
+Peaking,Week 11,Saturday,Warm-up B,2000 Meter Drill CORE/Weights
+Peaking,Week 11,Saturday,Or Race Prep,
+
+Peaking,Week 12,Sunday,Static Run (30 minutes),
+Peaking,Week 12,Monday,Warm-up A,400’s Recovery CORE/Weights
+Peaking,Week 12,Tuesday,Team Warm-up,Negative Split Run Strides/Stretch
+Peaking,Week 12,Wednesday,Team Warm-up,20 Minute Run 150 build-ups Stretch
+Peaking,Week 12,Saturday,PR Test,800
+Peaking,Week 12,Saturday,Team Warm-up,45 Minute Run Stretch
+Peaking,Week 12,Saturday,REST,
+
+Peaking,Week 13,Sunday,PR Test,1600
+Peaking,Week 13,Monday,Section Trials,
+Peaking,Week 13,Wednesday,Section Finals,
+Peaking,Week 13,Saturday,REST,
+
+Peaking,Week 14,Sunday,PR Test,3200
+Peaking,Week 14,Monday,Masters Trials,
+Peaking,Week 14,Wednesday,Masters Finals,
