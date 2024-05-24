@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getIncreasingNumberBetween(min, max, week, totalWeeks) {
       const difference = max - min;
-      const increment = difference / totalWeeks;
-      let distance = Math.round(min + increment * week);
+      const increment = difference / (totalWeeks - taperWeeksCount - 1);
+      let distance = min + increment * (week - 1);
       if (unitValue === 'miles') {
         distance = convertToMiles(distance);
       }
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const weekNumber = startWeekNumber + index;
         taperHtml += `
           <tr>
-            <td>Week ${weekNumber}</td>
+            <td>Taper Week ${weekNumber}</td>
             <td><a href="#rest">Rest or Crosstrain</a></td>
             <td><a href="#${getRandomSession(mediumRunSessions).toLowerCase()}">${getRandomSession(mediumRunSessions)}</a> - ${week.mediumRunDistance}${unitValue}</td>
             <td><a href="#easy">Easy</a> - ${week.easyRunDistance}${unitValue}</td>
@@ -121,11 +121,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function createPlan() {
       let planHtml = '<table class="table table-bordered"><thead><tr><th>Week</th><th>Day 1</th><th>Day 2</th><th>Day 3</th><th>Day 4</th><th>Day 5</th><th>Day 6</th><th>Day 7</th><th>Total Mileage</th></tr></thead><tbody>';
-      for (let week = 1; week <= numberOfWeeksToTrain - taperWeeksCount; week++) {
-        const easyDist = getIncreasingNumberBetween(minEasyRunDist, maxEasyRunDist, week, numberOfWeeksToTrain);
-        const medDist = getIncreasingNumberBetween(minMedRunDist, maxMedRunDist, week, numberOfWeeksToTrain);
-        const speedDist = getIncreasingNumberBetween(minSpeedRunDist, maxSpeedRunDist, week, numberOfWeeksToTrain);
-        const longDist = getIncreasingNumberBetween(minLongRunDist, maxLongRunDist, week, numberOfWeeksToTrain);
+      const totalWeeks = numberOfWeeksToTrain;
+
+      const trainingWeeks = totalWeeks - taperWeeksCount - 1;
+
+      for (let week = 1; week <= trainingWeeks; week++) {
+        const easyDist = getIncreasingNumberBetween(minEasyRunDist, maxEasyRunDist, week, totalWeeks);
+        const medDist = getIncreasingNumberBetween(minMedRunDist, maxMedRunDist, week, totalWeeks);
+        const speedDist = getIncreasingNumberBetween(minSpeedRunDist, maxSpeedRunDist, week, totalWeeks);
+        const longDist = getIncreasingNumberBetween(minLongRunDist, maxLongRunDist, week, totalWeeks);
         planHtml += createWeekRow(week, easyDist, medDist, speedDist, longDist);
       }
 
@@ -136,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
           { mediumRunDistance: getIncreasingNumberBetween(6, 7, 1, 2), speedRunDistance: getIncreasingNumberBetween(5, 7, 1, 2), easyRunDistance: 10, longRunDistance: 15 },
           { mediumRunDistance: getIncreasingNumberBetween(6, 7, 2, 2), speedRunDistance: getIncreasingNumberBetween(5, 7, 2, 2), easyRunDistance: 10, longRunDistance: 12 }
         ];
-        taperWeeksHtml = handleTaperWeeks(taperWeeks, numberOfWeeksToTrain + 1);
+        taperWeeksHtml = handleTaperWeeks(taperWeeks, totalWeeks - taperWeeksCount - 1 + 1);
       }
 
       if (distanceValue === "marathon") {
@@ -145,13 +149,12 @@ document.addEventListener('DOMContentLoaded', function() {
           { mediumRunDistance: getIncreasingNumberBetween(7, 8, 2, 3), speedRunDistance: getIncreasingNumberBetween(4, 6, 2, 3), easyRunDistance: 10, longRunDistance: 20 },
           { mediumRunDistance: getIncreasingNumberBetween(7, 7, 3, 3), speedRunDistance: getIncreasingNumberBetween(4, 4, 3, 3), easyRunDistance: 10, longRunDistance: 16 }
         ];
-        taperWeeksHtml = handleTaperWeeks(taperWeeks, numberOfWeeksToTrain + 1);
+        taperWeeksHtml = handleTaperWeeks(taperWeeks, totalWeeks - taperWeeksCount - 1 + 1);
       }
 
       planHtml += taperWeeksHtml;
 
       // Add race week
-      const totalWeeks = parseInt(weeksInput.value);
       const raceWeekRow = `
         <tr>
           <td>Week ${totalWeeks}</td>
