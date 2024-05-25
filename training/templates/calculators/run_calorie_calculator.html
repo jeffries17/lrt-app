@@ -3,92 +3,128 @@
 {% block content %}
 
 <div class="container mt-5">
-      <h2>Run Calorie Calculator</h2>
-      <div class="row">
-          <div class="col-md-6">
-              <form id="calorieForm" class="border border-2 rounded p-3" style="border-color: #d6d6d6 !important;">
-                  <div class="mb-3 row">
-                      <label for="weight" class="col-sm-4 col-form-label">Weight</label>
-                      <div class="col-sm-4">
-                          <input type="number" class="form-control" id="weight" required>
-                      </div>
-                      <div class="col-sm-4">
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="weightUnit" id="kg" value="kg" checked>
-                              <label class="form-check-label" for="kg">kg</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="weightUnit" id="lbs" value="lbs">
-                              <label class="form-check-label" for="lbs">lbs</label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="mb-3 row">
-                      <label for="distance" class="col-sm-4 col-form-label">Distance</label>
-                      <div class="col-sm-4">
-                          <input type="number" class="form-control" id="distance" required>
-                      </div>
-                      <div class="col-sm-4">
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="distanceUnit" id="km" value="km" checked>
-                              <label class="form-check-label" for="km">km</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="distanceUnit" id="miles" value="miles">
-                              <label class="form-check-label" for="miles">miles</label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="mb-3 row">
-                      <label class="col-sm-4 col-form-label">Duration</label>
-                      <div class="col-sm-2">
-                          <label for="durationHours" class="form-label">Hours</label>
-                          <input type="number" class="form-control" id="durationHours" placeholder="00" required>
-                      </div>
-                      <div class="col-sm-2">
-                          <label for="durationMinutes" class="form-label">Minutes</label>
-                          <input type="number" class="form-control" id="durationMinutes" placeholder="00" required>
-                      </div>
-                      <div class="col-sm-2">
-                          <label for="durationSeconds" class="form-label">Seconds</label>
-                          <input type="number" class="form-control" id="durationSeconds" placeholder="00" required>
-                      </div>
-                  </div>
-                  <div class="mb-3 row">
-                      <label for="elevation" class="col-sm-4 col-form-label">Elevation Gain (optional)</label>
-                      <div class="col-sm-4">
-                          <input type="number" class="form-control" id="elevation" placeholder="0">
-                      </div>
-                      <div class="col-sm-4">
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="elevationUnit" id="meters" value="meters" checked>
-                              <label class="form-check-label" for="meters">meters</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="elevationUnit" id="feet" value="feet">
-                              <label class="form-check-label" for="feet">feet</label>
-                          </div>
-                      </div>
-                  </div>
-                  <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
-
-              </form>
-              <div id="result" class="alert alert-success mt-3" style="display:none;"></div>
-          </div>
-          <div class="col-md-6">
-              <div class="border border-1 rounded-3 p-3" style="border-color: #ccc !important;">
-                  <h4>How It Works</h4>
-                  <p>This calculator helps you estimate the calories burned during your run, incorporating several key factors:</p>
-                  <ul>
-                      <li><strong>Weight:</strong> Calories burned are directly proportional to the body weight of the runner. We use your weight to calculate the total energy expenditure, converting pounds to kilograms if necessary.</li>
-                      <li><strong>Distance:</strong> The longer the distance, the more calories burned. This input adjusts the energy cost proportionally to the distance covered.</li>
-                      <li><strong>Duration:</strong> Total time spent running also affects calorie burn. We break down the input into hours, minutes, and seconds to compute the energy expenditure accurately.</li>
-                      <li><strong>Elevation Gain:</strong> Running uphill increases the energy cost significantly due to the additional effort required to overcome gravity. Elevation is optional and can be specified in meters or feet.</li>
-                  </ul>
+  <h1>Run Calorie Calculator</h1>
+  <div class="row">
+    <!-- Calculator Column -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h2>Calculate Your Calories Burned</h2>
+          <form id="calorieForm">
+            <div class="mb-3 row">
+              <label for="weight" class="col-sm-4 col-form-label">Weight</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" id="weight" required>
               </div>
-          </div>
+              <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="weightUnit" id="kg" value="kg" checked>
+                  <label class="form-check-label" for="kg">kg</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="weightUnit" id="lbs" value="lbs">
+                  <label class="form-check-label" for="lbs">lbs</label>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="distance" class="col-sm-4 col-form-label">Distance</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" id="distance" required>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="distanceUnit" id="km" value="km" checked>
+                  <label class="form-check-label" for="km">km</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="distanceUnit" id="miles" value="miles">
+                  <label class="form-check-label" for="miles">miles</label>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-4 col-form-label">Duration</label>
+              <div class="col-sm-8">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <input type="number" class="form-control" id="durationHours" placeholder="Hours" required>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="number" class="form-control" id="durationMinutes" placeholder="Minutes" required>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="number" class="form-control" id="durationSeconds" placeholder="Seconds" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="elevation" class="col-sm-4 col-form-label">Elevation Gain (optional)</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" id="elevation" placeholder="0">
+              </div>
+              <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="elevationUnit" id="meters" value="meters" checked>
+                  <label class="form-check-label" for="meters">meters</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="elevationUnit" id="feet" value="feet">
+                  <label class="form-check-label" for="feet">feet</label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
+          </form>
+        </div>
       </div>
+    </div>
+    <!-- Explanation Column -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h2>How It Works</h2>
+          <p>This calculator helps you estimate the calories burned during your run, incorporating several key factors:</p>
+          <ul>
+            <li><strong>Weight:</strong> Calories burned are directly proportional to the body weight of the runner. We use your weight to calculate the total energy expenditure, converting pounds to kilograms if necessary.</li>
+            <li><strong>Distance:</strong> The longer the distance, the more calories burned. This input adjusts the energy cost proportionally to the distance covered.</li>
+            <li><strong>Duration:</strong> Total time spent running also affects calorie burn. We break down the input into hours, minutes, and seconds to compute the energy expenditure accurately.</li>
+            <li><strong>Elevation Gain:</strong> Running uphill increases the energy cost significantly due to the additional effort required to overcome gravity. Elevation is optional and can be specified in meters or feet.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div id="resultsContainer" class="container mt-4"></div> <!-- Results Section -->
+
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">FAQ</div>
+      <div class="card-body">
+        <h3>How does the calculator work?</h3>
+        <p>The calculator estimates the calories burned during your run based on your weight, the distance covered, the duration of the run, and the elevation gain.</p>
+
+        <h3>Why do I need to enter my weight?</h3>
+        <p>Your weight is a critical factor in determining the number of calories burned. Heavier individuals burn more calories per unit of distance compared to lighter individuals.</p>
+
+        <h3>What if I don't know the elevation gain?</h3>
+        <p>Elevation gain is optional. If you don't know the elevation gain, you can leave it blank, and the calculator will estimate calories burned on flat terrain.</p>
+
+        <h3>How accurate is the calorie estimation?</h3>
+        <p>The estimation provides a general guideline based on standard formulas. Individual variations can occur, so consider this as an approximate estimate rather than an exact value.</p>
+
+        <h3>Can I use this calculator for other activities?</h3>
+        <p>This calculator is specifically designed for running. Different activities have different energy expenditure rates, so the results may not be accurate for other activities.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="support-note mt-4">
+    <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+  </div>
+</div>
 
 <script src="{% static 'js/runcaloriecalculator.js' %}"></script>
 

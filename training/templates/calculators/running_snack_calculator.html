@@ -4,48 +4,94 @@
 {% block content %}
 <div class="container mt-5">
   <h1 class="mb-4 text-center">Running Snack Calculator</h1>
-  <div id="calculatorForm" class="card">
-      <div class="card-body">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="calculatorForm" class="card">
+        <div class="card-body">
           <div class="row">
-              <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="unit">Distance Unit:</label>
-                      <select class="form-control" id="unit" onchange="updateAidStations()">
-                          <option value="km">Kilometers</option>
-                          <option value="miles">Miles</option>
-                      </select>
-                  </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="unit">Distance Unit:</label>
+                <select class="form-control" id="unit" onchange="updateAidStations()">
+                  <option value="km">Kilometers</option>
+                  <option value="miles">Miles</option>
+                </select>
               </div>
-              <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="raceLength">Race Length:</label>
-                      <input type="number" class="form-control" id="raceLength" required>
-                  </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="raceLength">Race Length:</label>
+                <input type="number" class="form-control" id="raceLength" required>
               </div>
-              <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="finishTime">Expected Finish Time (hours):</label>
-                      <input type="number" class="form-control" id="finishTime" required>
-                  </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="finishTime">Expected Finish Time (hours):</label>
+                <input type="number" class="form-control" id="finishTime" required>
               </div>
+            </div>
           </div>
           <div class="row">
-              <div class="col-md-12">
-                  <div class="form-group">
-                      <label for="aidStations">Number of Aid Stations:</label>
-                      <input type="number" class="form-control" id="aidStations" required oninput="updateAidStations()">
-                  </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="aidStations">Number of Aid Stations:</label>
+                <input type="number" class="form-control" id="aidStations" required oninput="updateAidStations()">
               </div>
+            </div>
           </div>
-          <div class="row" id="aidStationDetails">
-              <!-- Dynamically added aid station cards will appear here -->
+          <div id="aidStationDetails" class="mt-3">
+            <!-- Dynamically added aid station inputs will appear here -->
           </div>
           <div class="text-center mt-3">
             <button type="button" class="btn btn-primary" onclick="calculateSnacks()">Calculate</button>
           </div>
+        </div>
       </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">How to Use the Calculator</div>
+        <div class="card-body">
+          <p>To use the Running Snack Calculator, start by selecting your distance unit (Kilometers or Miles). Enter the total race length and your expected finish time in hours. Specify the number of aid stations you expect along the race route. For each aid station, enter the distance from the start. Click "Calculate" to see the recommended snacks for each aid station based on estimated calorie burn.</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="result" class="mt-4"></div>
+</div>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">FAQ</div>
+    <div class="card-body">
+      <h3>How are the results generated?</h3>
+      <p>The results are generated based on the distance between aid stations and your expected pace. The calculator estimates the time it will take to reach each aid station and calculates the calories burned. Snack recommendations are then made based on these calorie estimates.</p>
+
+      <h3>What calorie values are assigned to each food?</h3>
+      <p>The following calorie values are used for the snacks:
+        <ul>
+          <li>Bananas: 89 calories each</li>
+          <li>Cookies: 100 calories each</li>
+          <li>Watermelon slices: 60 calories each</li>
+          <li>Trail Mix: 140 calories per serving</li>
+          <li>Pickles: 5 calories each</li>
+        </ul>
+      </p>
+
+      <h3>Why do I need to enter the distance for each aid station?</h3>
+      <p>Entering the distance for each aid station allows the calculator to estimate the time you will take to reach each station, which is necessary to accurately calculate the calories burned and the snacks needed.</p>
+
+      <h3>Can I use this calculator for any race distance?</h3>
+      <p>Yes, the calculator can be used for any race distance. Just enter the appropriate race length and the number of aid stations, and the calculator will do the rest.</p>
+
+      <h3>What if the calculated snacks don't match my preferences?</h3>
+      <p>The snack recommendations are based on common running snacks and their calorie values. If you have different preferences, you can adjust the snack types and quantities to match your personal preferences and dietary needs.</p>
+    </div>
+  </div>
+</div>
+
+<div class="support-note">
+  <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
 </div>
 
 <script>

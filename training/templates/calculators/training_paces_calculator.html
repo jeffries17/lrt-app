@@ -3,95 +3,157 @@
 
 {% block content %}
 <div class="container mt-5">
-  <div class="row justify-content-center">
+  <h1 class="mb-4 text-center">Training Paces Calculator</h1>
+  <hr>
+  <div class="row">
     <div class="col-md-6">
-      <h2 class="mb-3">Training Paces Calculator</h2>
-      <form id="paceForm">
-          <div class="mb-3">
+      <div class="card">
+        <div class="card-body">
+          <form id="paceForm">
+            <div class="mb-3">
               <label for="raceSelection" class="form-label">Select a Race</label>
               <select class="form-control" id="raceSelection">
-                  <option value="5">5k</option>
-                  <option value="10">10k</option>
-                  <option value="21.0975">Half-Marathon</option>
-                  <option value="42.195">Marathon</option>
-                  <option value="custom">Custom Distance</option>
+                <option value="5">5k</option>
+                <option value="10">10k</option>
+                <option value="21.0975">Half-Marathon</option>
+                <option value="42.195">Marathon</option>
+                <option value="custom">Custom Distance</option>
               </select>
-          </div>
-          <div class="mb-3" id="customDistanceInput" style="display:none;">
-            <label for="customDistance" class="form-label">Enter Distance</label>
-            <input type="number" class="form-control" id="customDistance" placeholder="Enter distance">
-            <select class="form-control mt-2" id="distanceUnit">
+            </div>
+            <div class="mb-3" id="customDistanceInput" style="display:none;">
+              <label for="customDistance" class="form-label">Enter Distance</label>
+              <input type="number" class="form-control" id="customDistance" placeholder="Enter distance">
+              <select class="form-control mt-2" id="distanceUnit">
                 <option value="km">Kilometers</option>
                 <option value="miles">Miles</option>
-            </select>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="goalTime" class="form-label">Goal Time (HH:MM:SS)</label>
+              <input type="text" class="form-control" id="goalTime" placeholder="e.g., 3:45:00" required pattern="\d{1,2}:\d{2}:\d{2}">
+            </div>
+            <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
+          </form>
         </div>
-          <div class="mb-3">
-            <label for="goalTime" class="form-label">Goal Time (HH:MM:SS)</label>
-            <input type="text" class="form-control" id="goalTime" placeholder="e.g., 3:45:00" required pattern="\d{1,2}:\d{2}:\d{2}">
-          </div>
-          <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
-      </form>
-  <div id="results" class="mt-4">
-    <h2 id="resultsHeader"></h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Pace Type</th>
-          <th>Min/Mile</th>
-          <th>Min/Km</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Race Pace</td>
-          <td id="racePaceMile"></td>
-          <td id="racePaceKm"></td>
-        </tr>
-        <tr>
-          <td>Recovery Run Pace</td>
-          <td id="recoveryPaceMile"></td>
-          <td id="recoveryPaceKm"></td>
-        </tr>
-        <tr>
-          <td>Progression Run Pace</td>
-          <td id="progressionPaceMile"></td>
-          <td id="progressionPaceKm"></td>
-        </tr>
-        <tr>
-          <td>Fartlek Training Pace</td>
-          <td id="fartlekPaceMile"></td>
-          <td id="fartlekPaceKm"></td>
-        </tr>
-      </tbody>
-    </table>
-    <h3 class="mt-4">Speedwork</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Distance</th>
-        <th>Training Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>400m</td>
-        <td id="time400m"></td>
-      </tr>
-      <tr>
-        <td>600m</td>
-        <td id="time600m"></td>
-      </tr>
-      <tr>
-        <td>Yasso 800s</td>
-        <td id="time800m"></td>
-      </tr>
-      <tr>
-        <td>1200m</td>
-        <td id="time1200m"></td>
-      </tr>
-    </tbody>
-  </table>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">How to Use the Calculator</div>
+        <div class="card-body">
+          <p>Select your race distance and enter your goal time in HH:MM:SS format. If you select "Custom Distance", enter the distance and choose whether it is in kilometers or miles. Click "Calculate" to get your training paces.</p>
+          <p><strong>Recovery Pace:</strong> A pace used for easy runs to help recover from more intense workouts.</p>
+          <p><strong>Progression Pace:</strong> A run that starts slower and gradually increases in speed.</p>
+          <p><strong>Fartlek Training:</strong> A form of interval training with varying intensities.</p>
+          <p><strong>Speedwork:</strong> Short, high-intensity intervals to improve speed and running economy.</p>
+        </div>
+      </div>
+    </div>
   </div>
+  <div id="resultsContainer" class="mt-4" style="display:none;">
+    <div class="text-center">
+      <h2 id="resultsHeader"></h2>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Run Types</div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Pace Type</th>
+                  <th>Min/Mile</th>
+                  <th>Min/Km</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Race Pace</td>
+                  <td id="racePaceMile"></td>
+                  <td id="racePaceKm"></td>
+                </tr>
+                <tr>
+                  <td>Recovery Run Pace</td>
+                  <td id="recoveryPaceMile"></td>
+                  <td id="recoveryPaceKm"></td>
+                </tr>
+                <tr>
+                  <td>Progression Run Pace</td>
+                  <td id="progressionPaceMile"></td>
+                  <td id="progressionPaceKm"></td>
+                </tr>
+                <tr>
+                  <td>Fartlek Training Pace</td>
+                  <td id="fartlekPaceMile"></td>
+                  <td id="fartlekPaceKm"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Speedwork</div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Distance</th>
+                  <th>Training Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>400m</td>
+                  <td id="time400m"></td>
+                </tr>
+                <tr>
+                  <td>600m</td>
+                  <td id="time600m"></td>
+                </tr>
+                <tr>
+                  <td>Yasso 800s</td>
+                  <td id="time800m"></td>
+                </tr>
+                <tr>
+                  <td>1200m</td>
+                  <td id="time1200m"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">FAQ</div>
+    <div class="card-body">
+      <h3>How does the calculator work?</h3>
+      <p>The calculator uses your selected race distance and goal time to calculate your training paces. It provides various paces including race pace, recovery run pace, progression run pace, and fartlek training pace, as well as speedwork times for different distances.</p>
+
+      <h3>What is the "Recovery Pace"?</h3>
+      <p>Recovery pace is a slower pace used for easy runs that help your body recover from more intense workouts, promoting overall endurance and fitness without excessive strain.</p>
+
+      <h3>What is "Progression Pace"?</h3>
+      <p>Progression pace involves starting your run at a slower pace and gradually increasing the speed throughout the run. This helps build stamina and prepares your body for faster running towards the end of races.</p>
+
+      <h3>What is "Fartlek Training"?</h3>
+      <p>Fartlek training is a form of interval training that combines periods of fast running with periods of slower running. It helps improve speed and endurance by varying the pace throughout the workout.</p>
+
+      <h3>How is "Speedwork" beneficial?</h3>
+      <p>Speedwork involves running short, high-intensity intervals to improve your running economy, speed, and overall race performance. These workouts are crucial for developing the ability to run faster over longer distances.</p>
+    </div>
+  </div>
+</div>
+
+<div class="support-note">
+  <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
 </div>
 
 <script src="{% static 'js/trainingpacescalculator.js' %}"></script>

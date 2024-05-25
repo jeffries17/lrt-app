@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const calculateButton = document.getElementById('calculateButton');
   if (calculateButton) {
-      calculateButton.addEventListener('click', calculateCalories);
+    calculateButton.addEventListener('click', calculateCalories);
   } else {
-      console.error("Calculate button not found.");
+    console.error("Calculate button not found.");
   }
 
   function calculateCalories() {
@@ -34,8 +34,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const caloriesBurned = totalMet * weightInKg * durationInHours;
 
-    const resultElement = document.getElementById('result');
-    resultElement.style.display = 'block';
-    resultElement.textContent = `Estimated Calories Burned: ${caloriesBurned.toFixed(2)}`;
+    const resultsContainer = document.getElementById('resultsContainer');
+    if (resultsContainer) {
+      const resultElement = document.createElement('div');
+      resultElement.className = 'card mt-3';
+      resultElement.innerHTML = `
+        <div class="card-header">Estimated Calories Burned</div>
+        <div class="card-body">
+          <p>${caloriesBurned.toFixed(2)} calories</p>
+        </div>
+      `;
+
+      resultsContainer.innerHTML = ''; // Clear previous results
+      resultsContainer.appendChild(resultElement);
+    } else {
+      console.error("Results container not found.");
+    }
   }
 });

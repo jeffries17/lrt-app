@@ -2,51 +2,92 @@
 {% load static %}
 {% block content %}
 
-<div class="container mt-5">
-    <h1>Running Pace Calculator</h1>
-    <p>Just enter your expected pace below, and find your expected finish time in the table.</p>
+<h1>Running Pace Calculator</h1>
 
-    <div class="form-row">
+<div class="container">
+  <div class="card card-left">
+    <div class="card-header">Pace Calculator</div>
+    <div class="card-body">
+      <div class="form-row">
         <div class="form-group col-md-4">
-            <label for="paceMinutes">Pace (minutes per mile/km):</label>
-            <select class="form-control" id="paceMinutes">
-                <!-- Generating options from 3 to 25 minutes -->
-                ${[...Array(23)].map((_, i) => `<option>Minutes</option>`).join("")}
-            </select>
+          <label for="paceMinutes">Pace (minutes per mile/km):</label>
+          <select class="form-control" id="paceMinutes">
+            <!-- Generating options from 3 to 25 minutes -->
+            {% for i in minutes_range %}
+              <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+          </select>
         </div>
         <div class="form-group col-md-4">
-            <label for="paceSeconds">Pace (seconds):</label>
-            <select class="form-control" id="paceSeconds">
-                <!-- Generating options from 0 to 59 seconds -->
-                ${[...Array(60)].map((_, i) => `<option>Seconds</option>`).join("")}
-            </select>
+          <label for="paceSeconds">Pace (seconds):</label>
+          <select class="form-control" id="paceSeconds">
+            <!-- Generating options from 0 to 59 seconds -->
+            {% for i in seconds_range %}
+              <option value="{{ i }}">{{ i|add:":"|center:"02" }}</option>
+            {% endfor %}
+          </select>
         </div>
         <div class="form-group col-md-4">
-            <label for="unit">Unit:</label>
-            <select class="form-control" id="unit">
-                <option value="mi">min/mile</option>
-                <option value="km">min/km</option>
-            </select>
+          <label for="unit">Unit:</label>
+          <select class="form-control" id="unit">
+            <option value="mi">min/mile</option>
+            <option value="km">min/km</option>
+          </select>
         </div>
+      </div>
+      <button class="btn btn-primary" onclick="calculateTimes()">Calculate</button>
     </div>
-    <button class="btn btn-primary" onclick="calculateTimes()">Calculate</button>
+  </div>
 
-    <h2 class="mt-4">Estimated Race Finish Time</h2>
+  <div class="card card-right">
+    <div class="card-header">Instructions</div>
+    <div class="card-body">
+      <p>Enter your pace in minutes and seconds per mile or kilometer, and select the appropriate unit. Click the "Calculate" button to see your estimated finish times for various distances.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-4">
+  <div class="card-header">Estimated Race Finish Time</div>
+  <div class="card-body">
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Distance</th>
-                <th>Faster (-10s)</th>
-                <th>A Little Faster (-5s)</th>
-                <th>Selected Pace</th>
-                <th>A Little Slower (+5s)</th>
-                <th>Slower (+10s)</th>
-            </tr>
-        </thead>
-        <tbody id="resultsTable">
-            <!-- Results will be populated here by JavaScript -->
-        </tbody>
+      <thead>
+        <tr>
+          <th>Distance</th>
+          <th>Faster (-10s)</th>
+          <th>A Little Faster (-5s)</th>
+          <th>Selected Pace</th>
+          <th>A Little Slower (+5s)</th>
+          <th>Slower (+10s)</th>
+        </tr>
+      </thead>
+      <tbody id="resultsTable">
+        <!-- Results will be populated here by JavaScript -->
+      </tbody>
     </table>
+  </div>
+</div>
+
+<div class="faq">
+  <h2>FAQ</h2>
+  <h3>How does the calculator work?</h3>
+  <p>The calculator estimates your finish time based on your entered pace per mile or kilometer. It adjusts the pace to show variations, helping you plan your race strategy effectively.</p>
+
+  <h3>Who can use this calculator?</h3>
+  <p>This tool is designed for runners of all levels who want to estimate their race finish times based on their expected pace. It is suitable for training and race day planning.</p>
+
+  <h3>What distances does the calculator cover?</h3>
+  <p>The calculator covers a wide range of distances, including common race distances like 5K, 10K, half marathon, and marathon, as well as custom distances up to 31 miles or 50 kilometers.</p>
+
+  <h3>Why are there pace variations in the table?</h3>
+  <p>The pace variations (-10s, -5s, +5s, +10s) provide a range of estimated finish times. This helps you understand how slight changes in your pace can impact your overall time.</p>
+
+  <h3>How accurate are the results?</h3>
+  <p>The results are based on the entered pace and distance. Actual race times may vary due to factors like terrain, weather, and your physical condition on race day. Use the results as an estimate and adjust your training accordingly.</p>
+</div>
+
+<div class="support-note">
+  <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
 </div>
 
 <script src="{% static 'js/running_pace_calculator.js' %}"></script>

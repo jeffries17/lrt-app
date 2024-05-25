@@ -3,96 +3,125 @@
 {% block content %}
 
 <div class="container mt-5">
-      <h1>Marathon Training Readiness Calculator</h1>
-      <div class="row">
-          <div class="col-md-6"> <!-- Calculator Section -->
-              <!-- Tab navigation -->
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                      <a class="nav-link active" id="fun-tab" data-toggle="tab" href="#fun" role="tab" aria-controls="fun" aria-selected="true">Running for Fun</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" id="time-tab" data-toggle="tab" href="#time" role="tab" aria-controls="time" aria-selected="false">Running for Time</a>
-                  </li>
-              </ul>
-  
-              <!-- Tab content -->
-              <div class="tab-content" id="myTabContent">
-                  <!-- Running for Fun -->
-                  <div class="tab-pane fade show active" id="fun" role="tabpanel" aria-labelledby="fun-tab">
-                      <div class="card mt-3">
-                          <div class="card-body">
-                              <form id="funForm">
-                                  <div class="form-group">
-                                      <label for="raceDistanceFun">Race Distance (miles):</label>
-                                      <input type="number" id="raceDistanceFun" value="26.2" readonly class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="raceDateFun">Race Date:</label>
-                                      <input type="date" id="raceDateFun" class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="currentMileageFun">Current Weekly Mileage:</label>
-                                      <input type="number" id="currentMileageFun" min="0" step="1" class="form-control">
-                                  </div>
-                                  <button type="button" class="btn btn-primary" onclick="calculateReadinessFun()">Calculate</button>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-  
-                  <!-- Running for Time -->
-                  <div class="tab-pane fade" id="time" role="tabpanel" aria-labelledby="time-tab">
-                      <div class="card mt-3">
-                          <div class="card-body">
-                              <form id="timeForm">
-                                  <div class="form-group">
-                                      <label for="raceDistanceTime">Race Distance (miles):</label>
-                                      <input type="number" id="raceDistanceTime" value="26.2" readonly class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="raceDateTime">Race Date:</label>
-                                      <input type="date" id="raceDateTime" class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="currentMileageTime">Current Weekly Mileage:</label>
-                                      <input type="number" id="currentMileageTime" min="0" step="1" class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="currentPace">Current Time (hours:minutes):</label>
-                                      <input type="text" id="currentPace" class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="goalPace">Goal Time (hours:minutes):</label>
-                                      <input type="text" id="goalPace" class="form-control">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="trainingDaysTime">Training Days per Week:</label>
-                                      <input type="number" id="trainingDaysTime" min="1" max="7" step="1" class="form-control">
-                                  </div>
-                                  <button type="button" class="btn btn-primary" onclick="calculateReadinessTime()">Calculate</button>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-  
-          <div class="col-md-6"> <!-- Results Section -->
-              <div class="card mt-3" id="resultCard">
-                  <div class="card-header" id="resultHeader"> Will You Be Ready For Race Day?</div>
-                    <div class="card-body">
-                        <p id="initialText">Thinking about signing up for a race? Not sure if you've got enough training time to make it to the finish? 
-                          <br>
-                          <br>
-                          Enter your details in the form to the left to calculate your marathon readiness. 
-                          This tool helps you understand whether you have enough time to prepare based on your current training level.</p>
-                        <p id="resultText"></p>
-                    </div>
+  <h1>Marathon Training Readiness Calculator</h1>
+  <div class="row">
+    <div class="col-md-6"> <!-- Calculator Section -->
+      <div class="card mt-3">
+        <div class="card-body">
+          <!-- Tab navigation -->
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="fun-tab" data-toggle="tab" href="#fun" role="tab" aria-controls="fun" aria-selected="true">Running for Fun</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="time-tab" data-toggle="tab" href="#time" role="tab" aria-controls="time" aria-selected="false">Running for Time</a>
+            </li>
+          </ul>
 
+          <!-- Tab content -->
+          <div class="tab-content" id="myTabContent">
+            <!-- Running for Fun -->
+            <div class="tab-pane fade show active" id="fun" role="tabpanel" aria-labelledby="fun-tab">
+              <div class="mt-3">
+                <form id="funForm">
+                  <div class="form-group">
+                    <label for="raceDistanceFun">Race Distance (miles):</label>
+                    <input type="number" id="raceDistanceFun" value="26.2" readonly class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="raceDateFun">Race Date:</label>
+                    <input type="date" id="raceDateFun" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="currentMileageFun">Current Weekly Mileage:</label>
+                    <input type="number" id="currentMileageFun" min="0" step="1" class="form-control">
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="calculateReadinessFun()">Calculate</button>
+                </form>
               </div>
+            </div>
+
+            <!-- Running for Time -->
+            <div class="tab-pane fade" id="time" role="tabpanel" aria-labelledby="time-tab">
+              <div class="mt-3">
+                <form id="timeForm">
+                  <div class="form-group">
+                    <label for="raceDistanceTime">Race Distance (miles):</label>
+                    <input type="number" id="raceDistanceTime" value="26.2" readonly class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="raceDateTime">Race Date:</label>
+                    <input type="date" id="raceDateTime" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="currentMileageTime">Current Weekly Mileage:</label>
+                    <input type="number" id="currentMileageTime" min="0" step="1" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="currentPace">Current Time (HH:MM:SS):</label>
+                    <input type="text" id="currentPace" class="form-control" placeholder="e.g., 3:45:00">
+                  </div>
+                  <div class="form-group">
+                    <label for="goalPace">Goal Time (HH:MM:SS):</label>
+                    <input type="text" id="goalPace" class="form-control" placeholder="e.g., 3:30:00">
+                  </div>
+                  <div class="form-group">
+                    <label for="trainingDaysTime">Training Days per Week:</label>
+                    <input type="number" id="trainingDaysTime" min="1" max="7" step="1" class="form-control">
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="calculateReadinessTime()">Calculate</button>
+                </form>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
+    </div>
+
+    <div class="col-md-6"> <!-- Explanation Section -->
+      <div class="card mt-3">
+        <div class="card-header">How to Use This Calculator</div>
+        <div class="card-body">
+          <p>This calculator helps you determine your readiness for a marathon based on your current training level. Enter your race details and current weekly mileage to get started. For those aiming for a specific time, enter your current pace, goal pace, and training days per week.</p>
+          <ul>
+            <li><strong>Race Distance:</strong> Enter the distance of your race in miles.</li>
+            <li><strong>Race Date:</strong> Select the date of your race.</li>
+            <li><strong>Current Weekly Mileage:</strong> Enter the number of miles you run each week.</li>
+            <li><strong>Current Time:</strong> (For Running for Time) Enter your current time for a race of the same distance.</li>
+            <li><strong>Goal Time:</strong> (For Running for Time) Enter your goal time for the race.</li>
+            <li><strong>Training Days per Week:</strong> (For Running for Time) Enter the number of days you train per week.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultsContainer" class="container mt-4"></div> <!-- Results Section -->
+
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">FAQ</div>
+      <div class="card-body">
+        <h3>How does the calculator work?</h3>
+        <p>The calculator evaluates your readiness for a marathon based on the number of weeks until the race, your current weekly mileage, and other relevant factors.</p>
+
+        <h3>What is considered a good weekly mileage?</h3>
+        <p>A good weekly mileage depends on your running experience and goals. Generally, beginners should aim for 20-30 miles per week, while more experienced runners can aim for 35-50 miles or more.</p>
+
+        <h3>How accurate is the readiness assessment?</h3>
+        <p>The readiness assessment provides a general guideline based on typical training requirements. It should be used as a tool to help you plan your training, but individual needs may vary.</p>
+
+        <h3>Can I improve my readiness if I have fewer weeks until the race?</h3>
+        <p>Yes, you can improve your readiness by gradually increasing your weekly mileage and incorporating different types of training runs. However, avoid increasing mileage too quickly to prevent injuries.</p>
+
+        <h3>What should I do if I'm not ready for the race?</h3>
+        <p>If you're not ready for the race, consider postponing to a later date or focusing on shorter races to build up your endurance and experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="support-note mt-4">
+    <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
   </div>
 
 <script src="{% static 'js/readyforraceday.js' %}"></script>

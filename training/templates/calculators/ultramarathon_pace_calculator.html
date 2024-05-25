@@ -3,37 +3,75 @@
 
 {% block content %}
 <h1>Ultramarathon Pace Calculator</h1>
-<form id="paceCalculator">
-    <label for="distance">Distance:</label><br>
-    <input type="number" id="distance" name="distance" min="0">
-    <select id="distanceUnit">
+<p class="tagline">Calculate your ultramarathon pace and estimated finish time based on recent race data and elevation gain.</p>
+
+<div class="container">
+  <div class="card card-left">
+    <div class="card-header">Pace Calculator</div>
+    <div class="card-subheader">Enter your race details below</div>
+    <form id="paceCalculator">
+      <label for="distance">Distance:</label><br>
+      <input type="number" id="distance" name="distance" min="0">
+      <select id="distanceUnit">
         <option value="kilometers">Kilometers</option>
         <option value="miles">Miles</option>
-    </select><br>
-    
-    <label for="elevation">Total Elevation Gain:</label><br>
-    <input type="number" id="elevation" name="elevation" min="0">
-    <select id="elevationUnit">
+      </select><br>
+      
+      <label for="elevation">Total Elevation Gain:</label><br>
+      <input type="number" id="elevation" name="elevation" min="0">
+      <select id="elevationUnit">
         <option value="meters">Meters</option>
-        <option value="feet">Feet</option>
-    </select><br>
-    
-    <h2>Enter a recent race for base pace calculation:</h2>
-    <label for="recentDistance">Recent Race Distance:</label><br>
-    <input type="number" id="recentDistance" name="recentDistance" min="0">
-    <select id="recentDistanceUnit">
+        <option value="feet">Feet</</option>
+      </select><br>
+      
+      <h2>Recent Race Details</h2>
+      <label for="recentDistance">Recent Race Distance:</label><br>
+      <input type="number" id="recentDistance" name="recentDistance" min="0">
+      <select id="recentDistanceUnit">
         <option value="kilometers">Kilometers</option>
         <option value="miles">Miles</option>
-    </select><br>
-    
-    <label for="recentTime">Recent Race Time (HH:MM:SS):</label><br>
-    <input type="text" id="recentTime" name="recentTime"><br>
-    
-    <input type="submit" value="Calculate Pace and Finish Time">
-</form>
+      </select><br>
+      
+      <label for="recentTime">Recent Race Time (HH:MM:SS):</label><br>
+      <input type="text" id="recentTime" name="recentTime"><br>
+      
+      <input type="submit" value="Calculate Pace and Finish Time">
+    </form>
+  </div>
+  
+  <div class="card card-right">
+    <div class="card-header">Instructions</div>
+    <p>Enter the distance and elevation gain of your planned ultramarathon. Additionally, provide details of a recent race you completed to calculate your base pace. Click the "Calculate Pace and Finish Time" button to see your results.</p>
+  </div>
+</div>
 
-<p id="result"></p>
+<div id="result-card" class="card">
+  <div class="card-header">Results</div>
+  <p id="result"></p>
+</div>
 
-<script src="{% static 'js/ultrapacecalculator.js' %}"></script> 
+<div class="faq">
+  <h2>FAQ</h2>
+  <h3>How does the calculator work?</h3>
+  <p>The calculator uses your recent race data to determine your base pace. It then adjusts this pace based on the distance and elevation gain of your planned ultramarathon to provide an estimated finish time and pace.</p>
+  
+  <h3>Who is this calculator for?</h3>
+  <p>This calculator is designed for ultramarathon runners looking to estimate their pace and finish time for upcoming races. It is suitable for runners of all levels who want to plan their race strategy effectively.</p>
+  
+  <h3>What should I do if my results seem off?</h3>
+  <p>Ensure that all the input values are correct, especially the units of measurement. Small errors in distance or elevation can lead to inaccurate results. Double-check your recent race time and distance as well.</p>
+  
+  <h3>How can I improve my ultramarathon pace?</h3>
+  <p>Improving your ultramarathon pace involves consistent training, including long runs, speed work, and hill training. Nutrition, hydration, and rest are also crucial. Consider consulting with a coach for a personalized training plan.</p>
+  
+  <h3>Can I use this calculator for other race distances?</h3>
+  <p>While this calculator is specifically designed for ultramarathons, you can use the principles to estimate paces for shorter races by adjusting the input values accordingly. However, for more accurate predictions for shorter distances, consider using calculators tailored to those specific race types.</p>
+</div>
+
+<div class="support-note">
+  <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
+<script src="{% static 'js/ultrapacecalculator.js' %}"></script>
 
 {% endblock %}

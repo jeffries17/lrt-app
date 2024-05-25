@@ -2,61 +2,112 @@
 {% load static %}
 {% block content %}
 
-<form name="calculator" method="post" action="">
-  <div class="mp-form-row">
-      <div class="mp-form-label" style="width:100%">
-          <label>Race distance you're training for:</label>
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Race Improvement Calculator</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form name="calculator" method="post" action="">
+            <div class="mp-form-row">
+              <div class="mp-form-label" style="width:100%">
+                <label>Race distance you're training for:</label>
+              </div>
+              <select name="distance" id="distance" class="mepr-form-input form-control">
+                <option value="5 km">5 km</option>
+                <option value="8 km">8 km</option>
+                <option value="10 km">10 km</option>
+                <option value="12 km">12 km</option>
+                <option value="15 km">15 km</option>
+                <option value="1/2 Mar">1/2 Marathon</option>
+                <option value="Marathon">Marathon</option>
+                <option value="50 km">50 km</option>
+                <option value="100 km">100 km</option>
+              </select>
+            </div>
+            <div class="mp-form-row">
+              <div class="mp-form-label" style="width:100%">
+                <label>Your Current Time or Personal Best:</label>
+              </div>
+              <input type="text" name="current-time" id="current-time" class="mepr-form-input form-control" value="01:00:00" placeholder="HH:MM:SS" />
+            </div>
+            <div class="mp-form-row">
+              <div class="mp-form-label" style="width:100%">
+                <label>Quality of Training:</label>
+              </div>
+              <select name="quality-of-training" id="quality-of-training" class="mepr-form-input form-control">
+                <option value="beginner" selected>Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="experienced">Experienced</option>
+              </select>
+            </div>
+            <div class="mp-form-row">
+              <div class="mp-form-label" style="width:100%">
+                <label>Average Weekly Mileage:</label>
+              </div>
+              <select name="average-weekly-mileage" id="average-weekly-mileage" class="mepr-form-input form-control">
+                <option value="10">10-20 miles or 16-30 km</option>
+                <option value="20">20-30 miles or 30-50 km</option>
+                <option value="30">30-40 miles or 50-65 km</option>
+                <option value="40">40-50 miles or 65-80 km</option>
+                <option value="50">50+ miles or 85 + km</option>
+              </select>
+            </div>
+            <div class="mp-form-row text-center mt-3">
+              <input value="Predict My Improvement" class="btn btn-primary" type="button" id="predicted-time-improvement">
+            </div>
+            <div class="mp-form-row mt-3">
+              <div class="mp-form-label">
+                <label>Predicted Time:</label>
+              </div>
+              <input type="text" name="predicted-improvement" id="predicted-improvement" class="mepr-form-input form-control" value="" readonly />
+            </div>
+          </form>
+        </div>
       </div>
-      <select name="distance" id="distance" class="mepr-form-input">
-          <option value="5 km">5 km</option>
-          <option value="8 km">8 km</option>
-          <option value="10 km">10 km</option>
-          <option value="12 km">12 km</option>
-          <option value="15 km">15 km</option>
-          <option value="1/2 Mar">1/2 Marathon</option>
-          <option value="Marathon">Marathon</option>
-          <option value="50 km">50 km</option>
-          <option value="100 km">100 km</option>
-      </select>
-  </div>
-  <div class="mp-form-row">
-      <div class="mp-form-label" style="width:100%">
-          <label>Your Current Time or Personal Best:</label>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">How to Use the Calculator</div>
+        <div class="card-body">
+          <p>To use the Race Improvement Calculator, start by selecting the race distance you're training for. Enter your current race time or personal best in HH:MM:SS format. Select your quality of training (beginner, intermediate, or experienced) and your average weekly mileage. Click the "Predict My Improvement" button to see your predicted race time improvement.</p>
+          <p><strong>Beginner Training:</strong> Typically consists of just running mileage, with around 3-4 runs per week.</p>
+          <p><strong>Intermediate Training:</strong> Includes up to 5 runs per week, with varying workout difficulties such as tempo runs and intervals.</p>
+          <p><strong>Experienced Training:</strong> Involves up to 6 runs per week, with a focus on pace and speed work, including long runs, tempo runs, intervals, and recovery runs.</p>
+        </div>
       </div>
-      <input type="text" name="current-time" id="current-time" class="mepr-form-input" value="01:00:00" placeholder="HH:MM:SS" />
+    </div>
   </div>
-  <div class="mp-form-row">
-      <div class="mp-form-label" style="width:100%">
-          <label>Quality of Training:</label>
-      </div>
-      <select name="quality-of-training" id="quality-of-training" class="mepr-form-input">
-        <option value="beginner" selected>Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="experienced">Experienced</option>
-      </select>
+  <div id="result" class="mt-4"></div>
+</div>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">FAQ</div>
+    <div class="card-body">
+      <h3>How does the calculator work?</h3>
+      <p>The calculator estimates your potential race time improvement based on your current race time, training quality, and average weekly mileage. It uses a formula that factors in the experience level and mileage to predict improvement.</p>
+
+      <h3>What race distances can I use this calculator for?</h3>
+      <p>You can use this calculator for a variety of race distances, from 5 km to 100 km. Simply select the race distance from the dropdown menu.</p>
+
+      <h3>Why do I need to enter my average weekly mileage?</h3>
+      <p>Your average weekly mileage is an important factor in predicting race time improvement. Higher mileage often correlates with greater endurance and better race performance.</p>
+
+      <h3>How accurate is the predicted time?</h3>
+      <p>The predicted time is an estimate based on your input data. Actual race performance can be influenced by many factors, including race day conditions, your health, and your training consistency.</p>
+
+      <h3>Can this calculator be used for all levels of runners?</h3>
+      <p>Yes, this calculator can be used by runners of all levels, from beginners to experienced runners. The quality of training option allows you to specify your experience level for a more accurate prediction.</p>
+    </div>
   </div>
-  <div class="mp-form-row">
-      <div class="mp-form-label" style="width:100%">
-          <label>Average Weekly Mileage:</label>
-      </div>
-      <select name="average-weekly-mileage" id="average-weekly-mileage" class="mepr-form-input">
-          <option value="10">10-20 miles or 16-30 km</option>
-          <option value="20">20-30 miles or 30-50 km</option>
-          <option value="30">30-40 miles or 50-65 km</option>
-          <option value="40">40-50 miles or 65-80 km</option>
-          <option value="50">50+ miles or 85 + km</option>
-      </select>
-  </div>
-  <div class="mp-form-row">
-      <input value="Predict My Improvement" class="mepr-share-button" type="button" id="predicted-time-improvement">
-  </div>
-  <div class="mp-form-row">
-      <div class="mp-form-label">
-          <label>Predicted Time:</label>
-      </div>
-      <input type="text" name="predicted-improvement" id="predicted-improvement" class="mepr-form-input" value="" />
-  </div>
-</form>
+</div>
+
+<div class="support-note">
+  <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
 <script src="{% static 'js/raceimprovementcalculator.js' %}"></script>
 
 {% endblock %}

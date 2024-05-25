@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="text-center mb-5 p-3 bg-primary text-white rounded">
+    <div class="text-center mb-5 p-3 bg-secondary text-white rounded">
         <h1>Training Plan Generators</h1>
         <p class="lead">Choose your race and get a personalized training plan to achieve your running goals.</p>
     </div>
@@ -12,59 +12,67 @@
             <!-- One Mile Training Plans -->
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card border-light h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="card-title">One Mile</h3>
-                        <p class="card-text">Train to run a faster mile with our targeted plan.</p>
-                        <a href="{% url 'faster_mile' %}" class="btn btn-primary mb-2">Run a Faster Mile</a>
+                        <p class="card-text flex-grow-1">Train to run a faster mile with our targeted plan.</p>
+                        <a href="{% url 'faster_mile' %}" class="btn btn-primary mt-3">Run a Faster Mile</a>
                     </div>
                 </div>
             </div>
             <!-- 10k Training Plans -->
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card border-light h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="card-title">10k</h3>
-                        <p class="card-text">Get ready for your 10k race with tailored plans.</p>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Beginner</a>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
-                        <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                        <p class="card-text flex-grow-1">Get ready for your 10k race with tailored plans.</p>
+                        <div class="mt-auto">
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Beginner</a>
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
+                            <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Half-Marathon Training Plans -->
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card border-light h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="card-title">Half-Marathon</h3>
-                        <p class="card-text">Train for your half-marathon with customized plans.</p>
-                        <a href="{% url 'beginner_half_marathon' %}" class="btn btn-primary mb-2">Beginner</a>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
-                        <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                        <p class="card-text flex-grow-1">Train for your half-marathon with customized plans.</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'beginner_half_marathon' %}" class="btn btn-primary mb-2">Beginner</a>
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
+                            <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Marathon Training Plans -->
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card border-light h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="card-title">Marathon</h3>
-                        <p class="card-text">Prepare for your marathon with our expert plans.</p>
-                        <a href="{% url 'beginner_marathon' %}" class="btn btn-primary mb-2">Beginner</a>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
-                        <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                        <p class="card-text flex-grow-1">Prepare for your marathon with our expert plans.</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'beginner_marathon' %}" class="btn btn-primary mb-2">Beginner</a>
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
+                            <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Ultramarathon Training Plans -->
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card border-light h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="card-title">Ultramarathon</h3>
-                        <p class="card-text">Take on the ultimate challenge with these plans.</p>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 50k</a>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 50 Mile</a>
-                        <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 100k</a>
-                        <a href="/training-plans" class="btn btn-secondary">Run Your First 100 Mile</a>
+                        <p class="card-text flex-grow-1">Take on the ultimate challenge with these plans.</p>
+                        <div class="mt-auto">
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 50k</a>
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 50 Mile</a>
+                            <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 100k</a>
+                            <a href="/training-plans" class="btn btn-secondary">Run Your First 100 Mile</a>
+                        </div>
                     </div>
                 </div>
             </div>
