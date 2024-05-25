@@ -1,25 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Plan</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/training_plan.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pdf_styles.css' %}">
 </head>
 <body>
-    <div class="header">
-        <img src="{% static 'path/to/logo.png' %}" alt="Logo" class="logo">
-        <h1>Training Plan</h1>
-    </div>
-    <div class="plan-title">
-        Your {{ distance }} Training Plan: {{ weeks }} Weeks To Race Day!
-    </div>
-    <div id="plan-content">
+    <h1>Training Plan</h1>
+    <p>Distance: {{ distance }}</p>
+    <p>Weeks: {{ weeks }}</p>
+    <div>
         {{ plan_html|safe }}
-    </div>
-    <div class="footer">
-        Plan Created at www.LongRunTraining.com
     </div>
 </body>
 </html>
-

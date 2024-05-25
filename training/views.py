@@ -1,19 +1,15 @@
 from django.shortcuts import render
-import json
-import logging
 from django.http import JsonResponse, HttpResponse
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
-from django.views.decorators.csrf import csrf_exempt
 from weasyprint import HTML, CSS
+import json
+import logging
 from django.conf import settings
-from django.templatetags.static import static
 from django.contrib.staticfiles import finders
-
 
 logger = logging.getLogger(__name__)
 
-@csrf_exempt
 def generate_pdf(request):
     if request.method == 'POST':
         try:
@@ -38,7 +34,7 @@ def generate_pdf(request):
             full_html = render_to_string('training_plan_template.html', context)
 
             # Get the absolute path for the CSS file
-            css_path = finders.find('css/training_plan.css')
+            css_path = finders.find('css/pdf_styles.css')
             logger.info('CSS Path: %s', css_path)
 
             # Generate PDF from the rendered HTML using WeasyPrint and external CSS
@@ -65,6 +61,7 @@ def generate_pdf(request):
             logger.error('Error generating PDF and sending email: %s', e, exc_info=True)
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
 
 def home(request):
     return render(request, 'home.html')
