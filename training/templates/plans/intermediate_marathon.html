@@ -3,14 +3,14 @@
 {% block content %}
 
 <div class="container my-4">
-  <h1 class="mb-3">Beginner Marathon Training Plan Generator</h1>
+  <h1 class="mb-3">Intermediate Marathon Training Plan Generator</h1>
   <div class="row">
       <div class="col-md-6">
           <div class="card">
               <div class="card-body">
                   <form id="trainingForm">
                       <div class="form-group">
-                          <label for="weeks">Number of Weeks:</label>
+                          <label for="trainingWeeks">Number of Weeks:</label>
                           <select class="form-control" id="weeks">
                               <option>16</option>
                               <option>18</option>
@@ -25,7 +25,7 @@
                               <option value="km">Kilometers</option>
                           </select>
                       </div>
-                      <input type="hidden" id="selectedDistance" value="marathon">
+                      <input type="hidden" id="selectedDistance" value="intermediate-marathon">
                       <input type="hidden" id="selectedWeeks" value="">
                       <button type="button" class="btn btn-primary" id="generatePlan">Generate Plan</button>
                   </form>
@@ -37,8 +37,20 @@
               <div class="card-body">
                   <h5 class="card-title">How It Works</h5>
                   <p class="card-text">
-                      This tool generates a beginner marathon training plan.
-                      It includes easy runs and a long run each week, with rest days in between to allow for recovery.
+                      This tool will generate an intermediate marathon training plan based on your selected number of weeks and preferred unit of measurement.
+                  </p>
+                  <h5 class="card-title">Types of Runs</h5>
+                  <p class="card-text">
+                      <strong>Easy Runs:</strong> Comfortable pace, usually run at a conversational pace.
+                  </p>
+                  <p class="card-text">
+                      <strong>Medium Runs:</strong> Include sessions like Fartlek, Tempo, Progression, Long Intervals, and Threshold.
+                  </p>
+                  <p class="card-text">
+                      <strong>Speed Runs:</strong> Include 100m Intervals, 400m Intervals, 800m Intervals, and Hill Repeats.
+                  </p>
+                  <p class="card-text">
+                      <strong>Long Runs:</strong> Steady, longer-distance runs to build endurance.
                   </p>
               </div>
           </div>
@@ -60,13 +72,16 @@
   <div class="bg-light p-4 rounded mt-5">
       <h2>Frequently Asked Questions</h2>
       <hr>
-      <p>Answers to common questions about generating and using your beginner marathon training plan.</p>
-      <h3>How does the beginner marathon training plan work?</h3>
+      <p>Answers to common questions about generating and using your intermediate marathon training plan.</p>
+      <h3>How do I choose the right training distance?</h3>
       <hr>
-      <p>This plan includes easy runs and a long run each week, with rest days in between to allow for recovery. It's designed to help you build endurance gradually while avoiding injury.</p>
+      <p>Select the race distance you are preparing for. The intermediate marathon plan is designed specifically for the marathon distance.</p>
       <h3>How many weeks should I train?</h3>
       <hr>
       <p>We offer plans ranging from 16 to 22 weeks. Choose the duration that fits your schedule and training level. More weeks allow for a more gradual build-up and better adaptation.</p>
+      <h3>What if I need to change the units?</h3>
+      <hr>
+      <p>You can choose between miles and kilometers in the "Unit" dropdown. The training plan will adjust accordingly.</p>
       <h3>What if I miss a week?</h3>
       <hr>
       <p>If you miss a week, don't try to make up all the missed workouts. Continue with your plan, and adjust the intensity if necessary. It's better to progress steadily than risk injury by overtraining.</p>
@@ -75,11 +90,11 @@
       <p>Yes! After generating your plan, you can download it as a PDF or send it to your email using the provided buttons.</p>
       <h3>What if I'm looking for a more challenging plan?</h3>
       <hr>
-      <p>If you're looking for more difficult training plans, check out our intermediate and advanced marathon training plans. These plans include additional workouts and higher mileage to help you reach your goals.</p>
+      <p>If you're looking for more difficult training plans, check out our advanced marathon training plan. These plans include additional workouts and higher mileage to help you reach your goals.</p>
   </div>
 </div>
 
 <script src="{% static 'js/shared_plan_functions.js' %}"></script>
-<script src="{% static 'js/beginner_marathon_plan.js' %}"></script>
+<script src="{% static 'js/intermediate_marathon_plan.js' %}"></script>
 
 {% endblock %}

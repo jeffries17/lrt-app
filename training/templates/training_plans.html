@@ -55,8 +55,8 @@
                         <p class="card-text flex-grow-1">Prepare for your marathon with our expert plans.</p>
                         <div class="mt-auto">
                             <a href="{% url 'beginner_marathon' %}" class="btn btn-primary mb-2">Beginner</a>
-                            <a href="/training-plans" class="btn btn-secondary mb-2">Intermediate</a>
-                            <a href="/training-plans" class="btn btn-secondary">Advanced</a>
+                            <a href="{% url 'intermediate_marathon' %}" class="btn btn-primary mb-2">Intermediate</a>
+                            <a href="{% url 'advanced_marathon' %}" class="btn btn-primary">Advanced</a>
                         </div>
                     </div>
                 </div>
@@ -66,12 +66,9 @@
                 <div class="card border-light h-100">
                     <div class="card-body d-flex flex-column">
                         <h3 class="card-title">Ultramarathon</h3>
-                        <p class="card-text flex-grow-1">Take on the ultimate challenge with these plans.</p>
+                        <p class="card-text flex-grow-1">Create your custom ultramarathon training plan for 50Ks, 50 miles, 100Ks, 100 miles, or choose your own distance.</p>
                         <div class="mt-auto">
-                            <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 50k</a>
-                            <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 50 Mile</a>
-                            <a href="/training-plans" class="btn btn-secondary mb-2">Run Your First 100k</a>
-                            <a href="/training-plans" class="btn btn-secondary">Run Your First 100 Mile</a>
+                            <a href="{% url 'ultramarathon_plan' %}" class="btn btn-primary mb-2">Run Your First Ultra</a>
                         </div>
                     </div>
                 </div>

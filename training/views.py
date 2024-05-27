@@ -102,6 +102,12 @@ def beginner_half_marathon(request):
 def beginner_marathon(request):
     return render(request, 'plans/beginner_marathon.html')
 
+def intermediate_marathon(request):
+    return render(request, 'plans/intermediate_marathon.html')
+
+def advanced_marathon(request):
+    return render(request, 'plans/advanced_marathon.html')
+
 def faster_mile(request):
     return render(request, 'plans/faster_mile_plan.html')
 
@@ -110,6 +116,9 @@ def run_calculators(request):
 
 def training_plans(request):
     return render(request, 'training_plans.html')
+
+def ultramarathon_plan(request):
+    return render(request, 'plans/ultramarathon_plan.html')
 
 def running_resources(request):
     return render(request, 'running_resources.html')

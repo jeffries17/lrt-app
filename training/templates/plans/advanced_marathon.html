@@ -3,14 +3,14 @@
 {% block content %}
 
 <div class="container my-4">
-  <h1 class="mb-3">Beginner Marathon Training Plan Generator</h1>
+  <h1 class="mb-3">Advanced Marathon Training Plan Generator</h1>
   <div class="row">
       <div class="col-md-6">
           <div class="card">
               <div class="card-body">
                   <form id="trainingForm">
                       <div class="form-group">
-                          <label for="weeks">Number of Weeks:</label>
+                          <label for="trainingWeeks">Number of Weeks:</label>
                           <select class="form-control" id="weeks">
                               <option>16</option>
                               <option>18</option>
@@ -25,7 +25,11 @@
                               <option value="km">Kilometers</option>
                           </select>
                       </div>
-                      <input type="hidden" id="selectedDistance" value="marathon">
+                      <div class="form-group">
+                          <label for="goalTime">Goal Time (in minutes):</label>
+                          <input type="number" class="form-control" id="goalTime" placeholder="Enter your goal time in minutes">
+                      </div>
+                      <input type="hidden" id="selectedDistance" value="advanced-marathon">
                       <input type="hidden" id="selectedWeeks" value="">
                       <button type="button" class="btn btn-primary" id="generatePlan">Generate Plan</button>
                   </form>
@@ -37,8 +41,7 @@
               <div class="card-body">
                   <h5 class="card-title">How It Works</h5>
                   <p class="card-text">
-                      This tool generates a beginner marathon training plan.
-                      It includes easy runs and a long run each week, with rest days in between to allow for recovery.
+                      This tool will generate an advanced marathon training plan based on your selected number of weeks, preferred unit of measurement, and goal time.
                   </p>
               </div>
           </div>
@@ -56,30 +59,8 @@
           </div>
       </div>
   </div>
-
-  <div class="bg-light p-4 rounded mt-5">
-      <h2>Frequently Asked Questions</h2>
-      <hr>
-      <p>Answers to common questions about generating and using your beginner marathon training plan.</p>
-      <h3>How does the beginner marathon training plan work?</h3>
-      <hr>
-      <p>This plan includes easy runs and a long run each week, with rest days in between to allow for recovery. It's designed to help you build endurance gradually while avoiding injury.</p>
-      <h3>How many weeks should I train?</h3>
-      <hr>
-      <p>We offer plans ranging from 16 to 22 weeks. Choose the duration that fits your schedule and training level. More weeks allow for a more gradual build-up and better adaptation.</p>
-      <h3>What if I miss a week?</h3>
-      <hr>
-      <p>If you miss a week, don't try to make up all the missed workouts. Continue with your plan, and adjust the intensity if necessary. It's better to progress steadily than risk injury by overtraining.</p>
-      <h3>Can I download or email my training plan?</h3>
-      <hr>
-      <p>Yes! After generating your plan, you can download it as a PDF or send it to your email using the provided buttons.</p>
-      <h3>What if I'm looking for a more challenging plan?</h3>
-      <hr>
-      <p>If you're looking for more difficult training plans, check out our intermediate and advanced marathon training plans. These plans include additional workouts and higher mileage to help you reach your goals.</p>
-  </div>
 </div>
 
-<script src="{% static 'js/shared_plan_functions.js' %}"></script>
-<script src="{% static 'js/beginner_marathon_plan.js' %}"></script>
+<script src="{% static 'js/marathon_plans.js' %}"></script>
 
 {% endblock %}

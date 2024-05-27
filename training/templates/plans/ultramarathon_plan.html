@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-4">
+  <h1 class="mb-3">Ultramarathon Training Plan Generator</h1>
+  <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-body">
+                  <form id="trainingForm">
+                      <div class="form-group">
+                          <label for="distance">Distance:</label>
+                          <select class="form-control" id="distance">
+                              <option value="50k">50k</option>
+                              <option value="50 mile">50 mile</option>
+                              <option value="100k">100k</option>
+                              <option value="100 mile">100 mile</option>
+                              <option value="custom">Custom</option>
+                          </select>
+                          <div class="form-group mt-2" id="customDistanceInput" style="display:none;">
+                              <label for="customDistance">Enter Custom Distance:</label>
+                              <input type="number" class="form-control" id="customDistance" placeholder="Enter distance">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="trainingWeeks">Number of Weeks:</label>
+                          <select class="form-control" id="trainingWeeks">
+                              <option>16</option>
+                              <option>18</option>
+                              <option>20</option>
+                              <option>22</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="unit">Unit:</label>
+                          <select class="form-control" id="unit">
+                              <option value="miles">Miles</option>
+                              <option value="km">Kilometers</option>
+                          </select>
+                      </div>
+                      <input type="hidden" id="planType" value="ultramarathon">
+                      <input type="hidden" id="selectedDistance" value="">
+                      <input type="hidden" id="selectedWeeks" value="">
+                      <button type="button" class="btn btn-primary" id="generatePlan">Generate Plan</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">How It Works</h5>
+                  <p class="card-text">
+                      Select the number of days you wish to train each week using the dropdown menu. 
+                      This tool will generate a training plan based on your selection. 
+                      The training activities are ranked by importance and will vary by the number of days selected.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row mt-4">
+      <div class="col-12">
+          <h3>Your Training Plan:</h3>
+          <div id="trainingPlanOutput" class="mt-3">
+              <!-- Training plan will be displayed here -->
+          </div>
+          <div class="mt-3">
+              <button type="button" class="btn btn-success" id="downloadButton" style="display:none;">Download Plan as PDF</button>
+              <button type="button" class="btn btn-primary ml-3" id="emailButton" style="display:none;">Send Plan via Email</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="bg-light p-4 rounded mt-5">
+    <h2>Frequently Asked Questions</h2>
+    <hr>
+    <p>Answers to common questions about generating and using your ultramarathon training plan.</p>
+    <h3>How do I choose the right training distance?</h3>
+    <hr>
+    <p>Select the race distance you are preparing for. If you are training for a non-standard distance, select "Custom" and enter the distance in the provided field.</p>
+    <h3>How many weeks should I train?</h3>
+    <hr>
+    <p>We offer plans ranging from 16 to 22 weeks. Choose the duration that fits your schedule and training level. More weeks allow for a more gradual build-up and better adaptation.</p>
+    <h3>What if I need to change the units?</h3>
+    <hr>
+    <p>You can choose between miles and kilometers in the "Unit" dropdown. The training plan will adjust accordingly.</p>
+    <h3>What if I miss a week?</h3>
+    <hr>
+    <p>If you miss a week, don't try to make up all the missed workouts. Continue with your plan, and adjust the intensity if necessary. It's better to progress steadily than risk injury by overtraining.</p>
+    <h3>Can I download or email my training plan?</h3>
+    <hr>
+    <p>Yes! After generating your plan, you can download it as a PDF or send it to your email using the provided buttons.</p>
+</div>
+
+<script src="{% static 'js/ultramarathon_plan.js' %}"></script>
+
+{% endblock %}
