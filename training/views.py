@@ -110,3 +110,6 @@ def run_calculators(request):
 
 def training_plans(request):
     return render(request, 'training_plans.html')
+
+def running_resources(request):
+    return render(request, 'running_resources.html')

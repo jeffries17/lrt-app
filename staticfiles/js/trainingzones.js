@@ -19,9 +19,15 @@ function calculateHRZones(maxHR, restHR) {
 }
 
 function displayResults(zones) {
-  const resultsElement = document.getElementById('results');
-  resultsElement.innerHTML = `<h3>Your Heart Rate Zones</h3>`;
-  zones.forEach(zone => {
-      resultsElement.innerHTML += `<p>Zone ${zone.zone}: <strong>${zone.name}</strong> (${zone.intensity}) - HR: ${zone.hr} bpm</p>`;
-  });
+  const resultsContainer = document.getElementById('resultsContainer');
+  const resultCard = document.createElement('div');
+  resultCard.className = 'card mt-3';
+  resultCard.innerHTML = `
+    <div class="card-header">Your Heart Rate Zones</div>
+    <div class="card-body">
+      ${zones.map(zone => `<p>Zone ${zone.zone}: <strong>${zone.name}</strong> (${zone.intensity}) - HR: ${zone.hr} bpm</p>`).join('')}
+    </div>
+  `;
+  resultsContainer.innerHTML = ''; // Clear previous results
+  resultsContainer.appendChild(resultCard);
 }
