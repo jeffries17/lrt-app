@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}Running Pace Calculator{% endblock %}
+{% block meta_description %}Calculate your running pace and estimate your race finish times for various distances. Perfect for optimizing your race strategy and training plans.{% endblock %}
+{% block meta_keywords %}running pace calculator, race pace, running tools, pace per mile, pace per kilometer, race finish time, running calculator{% endblock %}
+
 {% block content %}
 
 <h1>Running Pace Calculator</h1>
@@ -71,23 +76,29 @@
 <div class="faq">
   <h2>FAQ</h2>
   <h3>How does the calculator work?</h3>
-  <p>The calculator estimates your finish time based on your entered pace per mile or kilometer. It adjusts the pace to show variations, helping you plan your race strategy effectively.</p>
+  <p>The calculator estimates your finish time based on your entered pace per mile or kilometer. It adjusts the pace to show variations, helping you plan your race strategy effectively. By providing a range of paces, you can better understand how slight changes in your pace can impact your overall finish time.</p>
 
   <h3>Who can use this calculator?</h3>
-  <p>This tool is designed for runners of all levels who want to estimate their race finish times based on their expected pace. It is suitable for training and race day planning.</p>
+  <p>This tool is designed for runners of all levels who want to estimate their race finish times based on their expected pace. It is suitable for training and race day planning, providing valuable insights into pacing strategies.</p>
 
   <h3>What distances does the calculator cover?</h3>
-  <p>The calculator covers a wide range of distances, including common race distances like 5K, 10K, half marathon, and marathon, as well as custom distances up to 31 miles or 50 kilometers.</p>
+  <p>The calculator covers a wide range of distances, including common race distances like 5K, 10K, half marathon, and marathon, as well as custom distances up to 31 miles or 50 kilometers. This flexibility makes it useful for various training and racing scenarios.</p>
 
   <h3>Why are there pace variations in the table?</h3>
-  <p>The pace variations (-10s, -5s, +5s, +10s) provide a range of estimated finish times. This helps you understand how slight changes in your pace can impact your overall time.</p>
+  <p>The pace variations (-10s, -5s, +5s, +10s) provide a range of estimated finish times. This helps you understand how slight changes in your pace can impact your overall time. It allows you to see the effect of running slightly faster or slower than your target pace.</p>
 
   <h3>How accurate are the results?</h3>
-  <p>The results are based on the entered pace and distance. Actual race times may vary due to factors like terrain, weather, and your physical condition on race day. Use the results as an estimate and adjust your training accordingly.</p>
+  <p>The results are based on the entered pace and distance. Actual race times may vary due to factors like terrain, weather, and your physical condition on race day. Use the results as an estimate and adjust your training accordingly. Remember that consistent training and proper race day preparation are key to achieving your desired results.</p>
 </div>
 
 <div class="support-note">
   <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The results provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script src="{% static 'js/running_pace_calculator.js' %}"></script>

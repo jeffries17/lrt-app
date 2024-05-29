@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}Running Snack Calculator{% endblock %}
+{% block meta_description %}Calculate the recommended snacks for your race based on distance, expected finish time, and number of aid stations. Perfect for optimizing your nutrition plan for any race distance.{% endblock %}
+{% block meta_keywords %}running snack calculator, race nutrition, running nutrition, aid station snacks, calorie calculator, race snacks, running tools, training plan{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
   <h1 class="mb-4 text-center">Running Snack Calculator</h1>
@@ -65,7 +69,7 @@
     <div class="card-header">FAQ</div>
     <div class="card-body">
       <h3>How are the results generated?</h3>
-      <p>The results are generated based on the distance between aid stations and your expected pace. The calculator estimates the time it will take to reach each aid station and calculates the calories burned. Snack recommendations are then made based on these calorie estimates.</p>
+      <p>The results are generated based on the distance between aid stations and your expected pace. The calculator estimates the time it will take to reach each aid station and calculates the calories burned. Snack recommendations are then made based on these calorie estimates. This ensures you have the right amount of energy to sustain your performance throughout the race.</p>
 
       <h3>What calorie values are assigned to each food?</h3>
       <p>The following calorie values are used for the snacks:
@@ -79,19 +83,25 @@
       </p>
 
       <h3>Why do I need to enter the distance for each aid station?</h3>
-      <p>Entering the distance for each aid station allows the calculator to estimate the time you will take to reach each station, which is necessary to accurately calculate the calories burned and the snacks needed.</p>
+      <p>Entering the distance for each aid station allows the calculator to estimate the time you will take to reach each station, which is necessary to accurately calculate the calories burned and the snacks needed. This helps ensure you are properly fueled throughout the race.</p>
 
       <h3>Can I use this calculator for any race distance?</h3>
-      <p>Yes, the calculator can be used for any race distance. Just enter the appropriate race length and the number of aid stations, and the calculator will do the rest.</p>
+      <p>Yes, the calculator can be used for any race distance. Just enter the appropriate race length and the number of aid stations, and the calculator will do the rest. This makes it versatile for different types of races, from short runs to ultramarathons.</p>
 
       <h3>What if the calculated snacks don't match my preferences?</h3>
-      <p>The snack recommendations are based on common running snacks and their calorie values. If you have different preferences, you can adjust the snack types and quantities to match your personal preferences and dietary needs.</p>
+      <p>The snack recommendations are based on common running snacks and their calorie values. If you have different preferences, you can adjust the snack types and quantities to match your personal preferences and dietary needs. It's important to choose snacks that you are familiar with and that work well with your digestive system during runs.</p>
     </div>
   </div>
 </div>
 
 <div class="support-note">
   <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The calculations provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script>

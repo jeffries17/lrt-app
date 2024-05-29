@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}Race Improvement Calculator{% endblock %}
+{% block meta_description %}Estimate your potential race time improvement based on your current performance, training quality, and weekly mileage. Perfect for setting new personal records and optimizing your training.{% endblock %}
+{% block meta_keywords %}race improvement calculator, running improvement, race time predictor, running tools, training plan, race performance{% endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
@@ -87,25 +92,31 @@
     <div class="card-header">FAQ</div>
     <div class="card-body">
       <h3>How does the calculator work?</h3>
-      <p>The calculator estimates your potential race time improvement based on your current race time, training quality, and average weekly mileage. It uses a formula that factors in the experience level and mileage to predict improvement.</p>
+      <p>The calculator estimates your potential race time improvement based on your current race time, training quality, and average weekly mileage. It uses a formula that factors in the experience level and mileage to predict improvement. This helps you understand the potential gains you can achieve with dedicated training.</p>
 
       <h3>What race distances can I use this calculator for?</h3>
-      <p>You can use this calculator for a variety of race distances, from 5 km to 100 km. Simply select the race distance from the dropdown menu.</p>
+      <p>You can use this calculator for a variety of race distances, from 5 km to 100 km. Simply select the race distance from the dropdown menu. This flexibility makes it suitable for both short and long-distance runners.</p>
 
       <h3>Why do I need to enter my average weekly mileage?</h3>
-      <p>Your average weekly mileage is an important factor in predicting race time improvement. Higher mileage often correlates with greater endurance and better race performance.</p>
+      <p>Your average weekly mileage is an important factor in predicting race time improvement. Higher mileage often correlates with greater endurance and better race performance. Consistent mileage helps build the aerobic base necessary for sustained running.</p>
 
       <h3>How accurate is the predicted time?</h3>
-      <p>The predicted time is an estimate based on your input data. Actual race performance can be influenced by many factors, including race day conditions, your health, and your training consistency.</p>
+      <p>The predicted time is an estimate based on your input data. Actual race performance can be influenced by many factors, including race day conditions, your health, and your training consistency. Use the prediction as a guideline and adjust your training as needed.</p>
 
       <h3>Can this calculator be used for all levels of runners?</h3>
-      <p>Yes, this calculator can be used by runners of all levels, from beginners to experienced runners. The quality of training option allows you to specify your experience level for a more accurate prediction.</p>
+      <p>Yes, this calculator can be used by runners of all levels, from beginners to experienced runners. The quality of training option allows you to specify your experience level for a more accurate prediction. Tailoring the input data to your specific circumstances will yield the best results.</p>
     </div>
   </div>
 </div>
 
 <div class="support-note">
   <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The predictions provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the predictions as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script src="{% static 'js/raceimprovementcalculator.js' %}"></script>

@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}Training Paces Calculator{% endblock %}
+{% block meta_description %}Calculate your training paces for different types of runs based on your race distance and goal time. Perfect for optimizing your training plan and improving race performance.{% endblock %}
+{% block meta_keywords %}training paces calculator, running pace calculator, race pace, recovery pace, progression pace, fartlek training, speedwork, running tools, training plan{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
   <h1 class="mb-4 text-center">Training Paces Calculator</h1>
@@ -135,25 +139,31 @@
     <div class="card-header">FAQ</div>
     <div class="card-body">
       <h3>How does the calculator work?</h3>
-      <p>The calculator uses your selected race distance and goal time to calculate your training paces. It provides various paces including race pace, recovery run pace, progression run pace, and fartlek training pace, as well as speedwork times for different distances.</p>
+      <p>The calculator uses your selected race distance and goal time to calculate your training paces. It provides various paces including race pace, recovery run pace, progression run pace, and fartlek training pace, as well as speedwork times for different distances. These paces help you structure your training to improve performance and meet your running goals.</p>
 
       <h3>What is the "Recovery Pace"?</h3>
-      <p>Recovery pace is a slower pace used for easy runs that help your body recover from more intense workouts, promoting overall endurance and fitness without excessive strain.</p>
+      <p>Recovery pace is a slower pace used for easy runs that help your body recover from more intense workouts, promoting overall endurance and fitness without excessive strain. It's essential for maintaining a balanced training program and preventing burnout.</p>
 
       <h3>What is "Progression Pace"?</h3>
-      <p>Progression pace involves starting your run at a slower pace and gradually increasing the speed throughout the run. This helps build stamina and prepares your body for faster running towards the end of races.</p>
+      <p>Progression pace involves starting your run at a slower pace and gradually increasing the speed throughout the run. This helps build stamina and prepares your body for faster running towards the end of races. It is an effective way to improve endurance and pacing strategies.</p>
 
       <h3>What is "Fartlek Training"?</h3>
-      <p>Fartlek training is a form of interval training that combines periods of fast running with periods of slower running. It helps improve speed and endurance by varying the pace throughout the workout.</p>
+      <p>Fartlek training is a form of interval training that combines periods of fast running with periods of slower running. It helps improve speed and endurance by varying the pace throughout the workout. This type of training keeps your runs interesting and can be adapted to different terrains and environments.</p>
 
       <h3>How is "Speedwork" beneficial?</h3>
-      <p>Speedwork involves running short, high-intensity intervals to improve your running economy, speed, and overall race performance. These workouts are crucial for developing the ability to run faster over longer distances.</p>
+      <p>Speedwork involves running short, high-intensity intervals to improve your running economy, speed, and overall race performance. These workouts are crucial for developing the ability to run faster over longer distances. Regular speedwork sessions can lead to significant improvements in your overall running capabilities.</p>
     </div>
   </div>
 </div>
 
 <div class="support-note">
   <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The training paces calculated by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script src="{% static 'js/trainingpacescalculator.js' %}"></script>

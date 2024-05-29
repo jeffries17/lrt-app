@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Heart Rate Zone Calculator{% endblock %}
+{% block meta_description %}Calculate your heart rate zones for effective training. Perfect for athletes looking to optimize their workouts based on their heart rate data.{% endblock %}
+{% block meta_keywords %}heart rate zone calculator, heart rate training, fitness calculator, workout zones, cardiovascular fitness, training intensity{% endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
@@ -47,19 +51,19 @@
       <div class="card-header">FAQ</div>
       <div class="card-body">
         <h3>How does the calculator work?</h3>
-        <p>The calculator determines your heart rate zones based on your maximum and resting heart rates. These zones help you tailor your training to meet your fitness goals.</p>
+        <p>The calculator determines your heart rate zones based on your maximum and resting heart rates. These zones help you tailor your training to meet your fitness goals. Knowing your heart rate zones allows you to train at the right intensity for your specific goals.</p>
 
         <h3>What is the importance of heart rate training zones?</h3>
-        <p>Heart rate training zones allow you to train at different intensities, helping you improve endurance, speed, and overall cardiovascular fitness.</p>
+        <p>Heart rate training zones allow you to train at different intensities, helping you improve endurance, speed, and overall cardiovascular fitness. Training in the right zone can maximize the effectiveness of your workouts and help you achieve your fitness goals more efficiently.</p>
 
         <h3>How accurate are the results?</h3>
-        <p>The results provide a general guideline based on common formulas for calculating heart rate zones. Individual variations may occur, and it's always best to consult with a healthcare professional.</p>
+        <p>The results provide a general guideline based on common formulas for calculating heart rate zones. Individual variations may occur, and it's always best to consult with a healthcare professional. Accurate measurements of your maximum and resting heart rates can improve the precision of your training zones.</p>
 
         <h3>What if I don't know my maximum heart rate?</h3>
-        <p>If you don't know your maximum heart rate, the calculator uses the standard formula of 220 minus your age to estimate it.</p>
+        <p>If you don't know your maximum heart rate, the calculator uses the standard formula of 220 minus your age to estimate it. This is a widely used method, but keep in mind that individual maximum heart rates can vary.</p>
 
         <h3>How should I use my heart rate zones?</h3>
-        <p>Use your heart rate zones to guide your training intensity. For example, Zone 1 is for recovery, while Zone 5 is for high-intensity efforts.</p>
+        <p>Use your heart rate zones to guide your training intensity. For example, Zone 1 is for recovery, while Zone 5 is for high-intensity efforts. Training in different zones helps target different aspects of fitness, such as fat burning, aerobic capacity, and anaerobic endurance.</p>
       </div>
     </div>
   </div>
@@ -67,6 +71,13 @@
   <div class="support-note mt-4">
     <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
   </div>
+
+  <div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The calculations provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
+  </div>
+
 </div>
 
 <script src="{% static 'js/trainingzones.js' %}"></script>

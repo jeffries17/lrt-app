@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}Age-Graded Calculator{% endblock %}
+{% block meta_description %}Calculate your age-graded running performance to compare it to world standards for your age and gender. Perfect for tracking progress and understanding your performance.{% endblock %}
+{% block meta_keywords %}age-graded calculator, running age grade, running performance, age grade comparison, running tools, training progress{% endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
@@ -66,19 +71,19 @@
       <div class="card-header">FAQ</div>
       <div class="card-body">
         <h3>How does the calculator work?</h3>
-        <p>The calculator uses your age, gender, and race performance to determine an age-graded score. This score allows for comparisons across different ages and genders.</p>
+        <p>The calculator uses your age, gender, and race performance to determine an age-graded score. This score allows for comparisons across different ages and genders. It adjusts your performance based on world record data to provide a standardized metric.</p>
 
         <h3>Why is age grading important?</h3>
-        <p>Age grading provides a standardized way to compare running performances across different ages and genders. It helps identify progress and areas for improvement.</p>
+        <p>Age grading provides a standardized way to compare running performances across different ages and genders. It helps identify progress and areas for improvement, making it easier to set realistic goals and track your development over time.</p>
 
         <h3>What distances are supported?</h3>
-        <p>The calculator supports a variety of distances including 1 Mile, 5K, 10K, Half Marathon, and Marathon, among others.</p>
+        <p>The calculator supports a variety of distances including 1 Mile, 5K, 10K, Half Marathon, and Marathon, among others. This range allows runners to evaluate their performance across different race lengths.</p>
 
         <h3>How accurate is the age grading?</h3>
-        <p>Age grading uses established formulas and world record data to provide a reliable comparison. However, individual performances can vary.</p>
+        <p>Age grading uses established formulas and world record data to provide a reliable comparison. However, individual performances can vary due to factors like course difficulty, weather, and personal fitness levels. Use the age-graded score as a guideline rather than an absolute measure.</p>
 
         <h3>Can I use this calculator for other activities?</h3>
-        <p>This calculator is specifically designed for running. Different activities have different performance metrics, so the results may not be accurate for other activities.</p>
+        <p>This calculator is specifically designed for running. Different activities have different performance metrics, so the results may not be accurate for other activities. For accurate comparisons in other sports, use calculators tailored to those specific activities.</p>
       </div>
     </div>
   </div>
@@ -86,6 +91,12 @@
   <div class="support-note mt-4">
     <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
   </div>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The age-graded results provided by this tool are formulated with the best intentions and are based on standard formulas and world record data. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script src="{% static 'js/agegrade.js' %}"></script>

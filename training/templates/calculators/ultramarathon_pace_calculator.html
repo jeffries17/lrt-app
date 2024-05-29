@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Ultramarathon Pace Calculator{% endblock %}
+{% block meta_description %}Calculate your ultramarathon pace and estimated finish time based on recent race data and elevation gain. Perfect for runners preparing for ultramarathons with varying elevations.{% endblock %}
+{% block meta_keywords %}ultramarathon pace calculator, ultramarathon finish time, running calculator, ultramarathon training, race pace estimation, elevation gain, running tools{% endblock %}
 
 {% block content %}
 <h1>Ultramarathon Pace Calculator</h1>
@@ -21,7 +24,7 @@
       <input type="number" id="elevation" name="elevation" min="0">
       <select id="elevationUnit">
         <option value="meters">Meters</option>
-        <option value="feet">Feet</</option>
+        <option value="feet">Feet</option>
       </select><br>
       
       <h2>Recent Race Details</h2>
@@ -53,23 +56,29 @@
 <div class="faq">
   <h2>FAQ</h2>
   <h3>How does the calculator work?</h3>
-  <p>The calculator uses your recent race data to determine your base pace. It then adjusts this pace based on the distance and elevation gain of your planned ultramarathon to provide an estimated finish time and pace.</p>
+  <p>The calculator uses your recent race data to determine your base pace. It then adjusts this pace based on the distance and elevation gain of your planned ultramarathon to provide an estimated finish time and pace. This helps you get a realistic expectation of your performance and better plan your race strategy.</p>
   
   <h3>Who is this calculator for?</h3>
-  <p>This calculator is designed for ultramarathon runners looking to estimate their pace and finish time for upcoming races. It is suitable for runners of all levels who want to plan their race strategy effectively.</p>
+  <p>This calculator is designed for ultramarathon runners looking to estimate their pace and finish time for upcoming races. It is suitable for runners of all levels who want to plan their race strategy effectively, ensuring they have a clear understanding of their capabilities.</p>
   
   <h3>What should I do if my results seem off?</h3>
-  <p>Ensure that all the input values are correct, especially the units of measurement. Small errors in distance or elevation can lead to inaccurate results. Double-check your recent race time and distance as well.</p>
+  <p>Ensure that all the input values are correct, especially the units of measurement. Small errors in distance or elevation can lead to inaccurate results. Double-check your recent race time and distance as well. If everything seems correct but the results are still off, consider factors like race day conditions and your physical condition.</p>
   
   <h3>How can I improve my ultramarathon pace?</h3>
-  <p>Improving your ultramarathon pace involves consistent training, including long runs, speed work, and hill training. Nutrition, hydration, and rest are also crucial. Consider consulting with a coach for a personalized training plan.</p>
+  <p>Improving your ultramarathon pace involves consistent training, including long runs, speed work, and hill training. Nutrition, hydration, and rest are also crucial. Consider consulting with a coach for a personalized training plan. Additionally, incorporating cross-training and strength training can help improve overall performance and reduce the risk of injury.</p>
   
   <h3>Can I use this calculator for other race distances?</h3>
-  <p>While this calculator is specifically designed for ultramarathons, you can use the principles to estimate paces for shorter races by adjusting the input values accordingly. However, for more accurate predictions for shorter distances, consider using calculators tailored to those specific race types.</p>
+  <p>While this calculator is specifically designed for ultramarathons, you can use the principles to estimate paces for shorter races by adjusting the input values accordingly. However, for more accurate predictions for shorter distances, consider using calculators tailored to those specific race types. This ensures that the unique demands of different race distances are accurately accounted for.</p>
 </div>
 
 <div class="support-note">
   <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The calculations provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script src="{% static 'js/ultrapacecalculator.js' %}"></script>

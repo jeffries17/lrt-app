@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}Marathon Training Readiness Calculator{% endblock %}
+{% block meta_description %}Determine your readiness for a marathon based on your current training level. Perfect for planning your race strategy and ensuring you're prepared for race day.{% endblock %}
+{% block meta_keywords %}marathon training readiness, marathon calculator, race day preparation, running readiness, marathon training plan, running tools, training readiness{% endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
@@ -103,19 +108,19 @@
       <div class="card-header">FAQ</div>
       <div class="card-body">
         <h3>How does the calculator work?</h3>
-        <p>The calculator evaluates your readiness for a marathon based on the number of weeks until the race, your current weekly mileage, and other relevant factors.</p>
+        <p>The calculator evaluates your readiness for a marathon based on the number of weeks until the race, your current weekly mileage, and other relevant factors. It provides insights into whether your current training is sufficient to meet your race goals.</p>
 
         <h3>What is considered a good weekly mileage?</h3>
-        <p>A good weekly mileage depends on your running experience and goals. Generally, beginners should aim for 20-30 miles per week, while more experienced runners can aim for 35-50 miles or more.</p>
+        <p>A good weekly mileage depends on your running experience and goals. Generally, beginners should aim for 20-30 miles per week, while more experienced runners can aim for 35-50 miles or more. This ensures a solid base for marathon training.</p>
 
         <h3>How accurate is the readiness assessment?</h3>
-        <p>The readiness assessment provides a general guideline based on typical training requirements. It should be used as a tool to help you plan your training, but individual needs may vary.</p>
+        <p>The readiness assessment provides a general guideline based on typical training requirements. It should be used as a tool to help you plan your training, but individual needs may vary. Always listen to your body and adjust your training as needed.</p>
 
         <h3>Can I improve my readiness if I have fewer weeks until the race?</h3>
-        <p>Yes, you can improve your readiness by gradually increasing your weekly mileage and incorporating different types of training runs. However, avoid increasing mileage too quickly to prevent injuries.</p>
+        <p>Yes, you can improve your readiness by gradually increasing your weekly mileage and incorporating different types of training runs. However, avoid increasing mileage too quickly to prevent injuries. Consistent training over time yields the best results.</p>
 
         <h3>What should I do if I'm not ready for the race?</h3>
-        <p>If you're not ready for the race, consider postponing to a later date or focusing on shorter races to build up your endurance and experience.</p>
+        <p>If you're not ready for the race, consider postponing to a later date or focusing on shorter races to build up your endurance and experience. Alternatively, adjust your race goals to match your current fitness level.</p>
       </div>
     </div>
   </div>
@@ -123,6 +128,13 @@
   <div class="support-note mt-4">
     <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
   </div>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The calculations provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
+</div>
 
 <script src="{% static 'js/readyforraceday.js' %}"></script>
 

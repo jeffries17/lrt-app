@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block title %}Running Calorie Calculator{% endblock %}
+{% block meta_description %}Estimate the calories burned during your run based on weight, distance, duration, and elevation gain. Perfect for optimizing your training and understanding your energy expenditure.{% endblock %}
+{% block meta_keywords %}running calorie calculator, calories burned running, running energy expenditure, run nutrition, calorie calculation, running tools, training plan{% endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
@@ -104,19 +109,19 @@
       <div class="card-header">FAQ</div>
       <div class="card-body">
         <h3>How does the calculator work?</h3>
-        <p>The calculator estimates the calories burned during your run based on your weight, the distance covered, the duration of the run, and the elevation gain.</p>
+        <p>The calculator estimates the calories burned during your run based on your weight, the distance covered, the duration of the run, and the elevation gain. These factors are combined using standard formulas to provide an estimate of your energy expenditure.</p>
 
         <h3>Why do I need to enter my weight?</h3>
-        <p>Your weight is a critical factor in determining the number of calories burned. Heavier individuals burn more calories per unit of distance compared to lighter individuals.</p>
+        <p>Your weight is a critical factor in determining the number of calories burned. Heavier individuals burn more calories per unit of distance compared to lighter individuals. This ensures the estimate is personalized to your specific body metrics.</p>
 
         <h3>What if I don't know the elevation gain?</h3>
-        <p>Elevation gain is optional. If you don't know the elevation gain, you can leave it blank, and the calculator will estimate calories burned on flat terrain.</p>
+        <p>Elevation gain is optional. If you don't know the elevation gain, you can leave it blank, and the calculator will estimate calories burned on flat terrain. Including elevation provides a more accurate estimate if you run on hilly or mountainous routes.</p>
 
         <h3>How accurate is the calorie estimation?</h3>
-        <p>The estimation provides a general guideline based on standard formulas. Individual variations can occur, so consider this as an approximate estimate rather than an exact value.</p>
+        <p>The estimation provides a general guideline based on standard formulas. Individual variations can occur, so consider this as an approximate estimate rather than an exact value. Factors such as metabolism, running efficiency, and environmental conditions can affect actual calorie burn.</p>
 
         <h3>Can I use this calculator for other activities?</h3>
-        <p>This calculator is specifically designed for running. Different activities have different energy expenditure rates, so the results may not be accurate for other activities.</p>
+        <p>This calculator is specifically designed for running. Different activities have different energy expenditure rates, so the results may not be accurate for other activities. Use calculators tailored to specific activities for more accurate estimates.</p>
       </div>
     </div>
   </div>
@@ -124,6 +129,12 @@
   <div class="support-note mt-4">
     <p>If you encounter any issues, have recommendations for improvements, or want to see other tools made, please send an email to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
   </div>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The calculations provided by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the results as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
 </div>
 
 <script src="{% static 'js/runcaloriecalculator.js' %}"></script>
