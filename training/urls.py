@@ -5,7 +5,6 @@ from .views import (
     training_zones, ultramarathon_plan, running_resources, run_calorie_calculator, age_grade_calculator, run_calculators, 
     training_plans, faster_mile, intermediate_marathon, advanced_marathon,
 )
-
 urlpatterns = [
     path('', home, name='home'),
     path('about/', about, name='about'),
