@@ -163,14 +163,6 @@ form input, form select {
   font-size: 16px;
 }
 
-.custom-success {
-  background-color: #D0CCD0 !important;
-}
-
-.custom-primary {
-  background-color: #1C6E8C !important;
-}
-
 .center-button {
   display: flex;
   justify-content: center;

@@ -161,15 +161,7 @@ form input, form select {
   width: 200px;
   height: 50px;
   font-size: 16px;
-}
-
-.custom-success {
-  background-color: #D0CCD0 !important;
-}
-
-.custom-primary {
-  background-color: #1C6E8C !important;
-}
+}ç
 
 .center-button {
   display: flex;
