@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Intermediate Half Marathon Training Plan Generator{% endblock %}
+{% block meta_description %}Generate a personalized intermediate half marathon training plan. Perfect for runners looking to improve their half marathon performance with a structured and challenging training plan.{% endblock %}
+{% block meta_keywords %}intermediate half marathon training, half marathon training plan, running plan generator, half marathon training, half marathon running, running tools, training plan{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <h1 class="mb-3">Intermediate Half Marathon Training Plan Generator</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form id="trainingForm">
+                        <div class="form-group">
+                            <label for="trainingDays">Number of Training Days per Week:</label>
+                            <select class="form-control" id="trainingDays">
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="trainingWeeks">Number of Weeks:</label>
+                            <select class="form-control" id="trainingWeeks">
+                                <option>8</option>
+                                <option>10</option>
+                                <option>12</option>
+                                <option>14</option>
+                                <option>16</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">Unit:</label>
+                            <select class="form-control" id="unit">
+                                <option value="miles">Miles</option>
+                                <option value="km">Kilometers</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="generatePlan">Generate Plan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">How It Works</h5>
+                    <p class="card-text">
+                        Select the number of days you wish to train each week, the number of weeks for the plan, and the unit of distance using the dropdown menus. 
+                        This tool will generate a training plan based on your selections. 
+                        The training activities are ranked by importance and will vary by the number of days selected.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>Your Training Plan:</h3>
+            <div id="trainingPlanOutput" class="mt-3">
+                <!-- Training plan will be displayed here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light p-4 rounded mt-5">
+    <h2>Frequently Asked Questions</h2>
+    <hr>
+    <p>Answers to common questions about generating and using your intermediate half marathon training plan.</p>
+    <h3>How does the intermediate half marathon training plan work?</h3>
+    <hr>
+    <p>This plan includes a mix of easy runs, long runs, and speed work each week, with rest days to allow for recovery. It's designed to help you build endurance and speed gradually while avoiding injury. The focus is on consistency and progression.</p>
+    <h3>How many weeks should I train?</h3>
+    <hr>
+    <p>We offer plans ranging from 8 to 16 weeks. Choose the duration that fits your schedule and training level. More weeks allow for a more gradual build-up and better adaptation, which is especially important for avoiding overtraining and injuries.</p>
+    <h3>What if I miss a week?</h3>
+    <hr>
+    <p>If you miss a week, don't try to make up all the missed workouts. Continue with your plan, and adjust the intensity if necessary. It's better to progress steadily than risk injury by overtraining. Missing a week is not ideal, but it's important to focus on long-term consistency.</p>
+    <h3>Can I download or email my training plan?</h3>
+    <hr>
+    <p>Yes! After generating your plan, you can download it as a PDF or send it to your email using the provided buttons. This makes it easy to access your plan on the go and stay organized throughout your training.</p>
+    <h3>What if I'm looking for a more challenging plan?</h3>
+    <hr>
+    <p>If you're looking for more difficult training plans, check out our advanced half marathon training plans. These plans include additional workouts and higher mileage to help you reach your goals. They are designed for runners who have some experience and are looking to push their limits further.</p>
+</div>
+
+<div class="support-note mt-5">
+    <p>
+        <strong>Disclaimer:</strong> The training plans generated by this tool are formulated with the best intentions and are based on standard training principles. However, there may still be slight miscalculations. Please use the plans as a guideline and adjust them according to your personal needs and conditions. If you encounter any bugs or have any questions, please send a note to <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>, and I will address them as soon as possible.
+    </p>
+</div>
+
+<script src="{% static 'js/shared_plan_functions.js' %}"></script>
+<script src="{% static 'js/intermediate_half_plan.js' %}"></script>
+
+{% endblock %}

@@ -1,40 +1,61 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Create Your Custom Run Training Plan{% endblock %}
-{% block meta_description %}Create a custom running training plan tailored to your specific goals and fitness level. Follow our easy steps to train smarter and achieve your running ambitions.{% endblock %}
-{% block meta_keywords %}custom run training plan, personalized running plan, marathon training, 5k training, 10k training, half-marathon training, training plan generator{% endblock %}
+{% block title %}Long Run Training{% endblock %}
+{% block meta_description %}Helping runners run farther and further with customized tools and plans. Create personalized running training plans and explore various running calculators to optimize your performance.{% endblock %}
+{% block meta_keywords %}long run training, custom running plans, marathon training, running tools, running calculators, training plan generator{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <div class="header text-center mb-5 rounded">
-        <h1>Create Your Custom Run Training Plan</h1>
-        <p class="lead">Generic plans = generic results. Create your custom plan based on how you run today to run your best tomorrow.</p>
+    <div class="header text-center mb-3 rounded">
+        <h1>Long Run Training</h1>
+        <p class="lead">Helping runners run farther and further with tools and plans.</p>
     </div>
 
-    <!-- Step-by-step instructions -->
-    <div class="row text-center mb-5">
-        <div class="col-md-4">
-            <div class="bg-light p-3 rounded">
-                <h2>Step 1</h2>
-                <p>Select your race distance, training duration, and preferred unit of measurement.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="bg-light p-3 rounded">
-                <h2>Step 2</h2>
-                <p>Generate a customized training plan that fits your schedule and goals.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="bg-light p-3 rounded">
-                <h2>Step 3</h2>
-                <p>Download your plan as a PDF or have it sent to your email for easy access.</p>
-            </div>
+    <!-- About Section -->
+    <div class="card mb-5">
+        <div class="card-body">
+            <h2 class="card-header">About the Running Plan Generator</h2>
+            <hr>
+            <p>The running plan generator is designed to help runners of all levels achieve their desired running distance and fitness goals. It creates a customized plan that takes into account your current fitness level, the amount of time you have to train, and the distance you want to achieve.</p>
+            <p>When you use the generator, you'll enter your current running distance and the desired distance you want to reach. You'll also specify the number of weeks you have to train and your preferred unit of measurement (miles or kilometers). The generator then creates a training plan that includes:</p>
+            <ul>
+                <li><strong>Increasing Mileage:</strong> Gradually increasing the distance of your runs to build endurance.</li>
+                <li><strong>Training Variety:</strong> A mix of easy runs, medium distance runs, speed workouts, and long runs to improve different aspects of your running.</li>
+                <li><strong>Tapering Weeks:</strong> Reducing mileage and intensity in the weeks leading up to your race to ensure you're well-rested and ready to perform.</li>
+            </ul>
+            <p>The plan is tailored to fit your schedule and goals, ensuring you can train effectively and safely. Whether you're training for a 5k or a marathon, the running plan generator can help you reach your running goals.</p>
         </div>
     </div>
 
-    <div class="bg-light p-4 rounded mb-5">
+    <!-- Plan Generator Section -->
+    <div class="card mb-5">
+        <h2 class="card-header">Create Your Custom Run Training Plan</h2>
+        <hr>
+        <p>Generic plans = generic results. Create your custom plan based on how you run today to run your best tomorrow.</p>
+        
+        <!-- Step-by-step instructions -->
+        <div class="row text-center mb-5">
+            <div class="col-md-4">
+                <div class="step-card">
+                    <h2>Step 1</h2>
+                    <p>Select your race distance, training duration, and preferred unit of measurement.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <h2>Step 2</h2>
+                    <p>Generate a customized training plan that fits your schedule and goals.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <h2>Step 3</h2>
+                    <p>Download your plan as a PDF or have it sent to your email for easy access.</p>
+                </div>
+            </div>
+        </div>
+
         <form id="runToFinishForm" class="mt-3">
             {% csrf_token %}
             <div class="form-row">
@@ -66,201 +87,58 @@
         <div id="trainingPlanOutput" class="mt-4"></div>
     </div>
 
-    <div class="bg-light p-4 rounded mb-5">
-        <h2>About the Running Plan Generator</h2>
-        <hr>
-        <p>The running plan generator is designed to help runners of all levels achieve their desired running distance and fitness goals. It creates a customized plan that takes into account your current fitness level, the amount of time you have to train, and the distance you want to achieve.</p>
-        <p>When you use the generator, you'll enter your current running distance and the desired distance you want to reach. You'll also specify the number of weeks you have to train and your preferred unit of measurement (miles or kilometers). The generator then creates a training plan that includes:</p>
-        <ul>
-            <li><strong>Increasing Mileage:</strong> Gradually increasing the distance of your runs to build endurance.</li>
-            <li><strong>Training Variety:</strong> A mix of easy runs, medium distance runs, speed workouts, and long runs to improve different aspects of your running.</li>
-            <li><strong>Tapering Weeks:</strong> Reducing mileage and intensity in the weeks leading up to your race to ensure you're well-rested and ready to perform.</li>
-        </ul>
-        <p>The plan is tailored to fit your schedule and goals, ensuring you can train effectively and safely. Whether you're training for a 5k or a marathon, the running plan generator can help you reach your running goals.</p>
-    </div>
-
-    <div class="bg-light p-4 rounded mb-5">
-        <h2>Types of Training Runs</h2>
-        <hr>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Recovery Run</h3>
-                        <p class="card-text flex-grow-1">Easy runs that help you recover from harder workouts.</p>
+    <!-- Two Main Cards -->
+    <div class="row mb-5">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Training Plan Generators</h2>
+                    <p class="card-text">Create a personalized training plan tailored to your race distance, training duration, and fitness level. Whether you're aiming for a 5k or a marathon, we have the right plan for you.</p>
+                    <div class="center-button">
+                        <a href="/training-plan-generator" class="btn btn-primary">Explore Training Plans</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Race Pace</h3>
-                        <p class="card-text flex-grow-1">Runs done at your goal race pace to prepare for race day.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Fartlek</h3>
-                        <p class="card-text flex-grow-1">Speed play runs that mix intervals of fast running with slower recovery periods.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Hills</h3>
-                        <p class="card-text flex-grow-1">Runs that include uphill segments to build strength and endurance.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Progressive</h3>
-                        <p class="card-text flex-grow-1">Runs that start slow and finish fast, building speed gradually.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Interval</h3>
-                        <p class="card-text flex-grow-1">Runs that include repeated short bursts of high intensity running followed by rest or low intensity.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Rest</h3>
-                        <p class="card-text flex-grow-1">Days designated for complete rest to allow your body to recover.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Cross Training</h3>
-                        <p class="card-text flex-grow-1">Activities other than running that help improve fitness and prevent injury.</p>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Running Calculators</h2>
+                    <p class="card-text">Use our running calculators to optimize your training. Calculate your pace, distance, and time, and find the right nutrition strategy for your races.</p>
+                    <div class="center-button">
+                        <a href="/run-calculators" class="btn btn-primary">Explore Calculators</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-light p-4 rounded mb-5">
-        <h2>Other Run Calculators</h2>
-        <hr>
-        <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Ultramarathon Pace Calculator</h3>
-                        <p class="card-text flex-grow-1">Calculate pace, distance, and time for your ultramarathon.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Ultramarathon Pace Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Run Pace Calculator</h3>
-                        <p class="card-text flex-grow-1">Get all your paces for your next race.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Run Pace Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Running Snack Calculator</h3>
-                        <p class="card-text flex-grow-1">Figure out how much and what to eat during your trail race.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Running Snack Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Race Improvement Calculator</h3>
-                        <p class="card-text flex-grow-1">See how your training intensity will affect your next race time.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Race Improvement Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Training Paces Calculator</h3>
-                        <p class="card-text flex-grow-1">Find the right training paces and workouts to achieve your goal time.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Training Paces Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Ready For Race Day</h3>
-                        <p class="card-text flex-grow-1">See if you've got time to perform how you want for that race.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Ready For Race Day</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Training Zones</h3>
-                        <p class="card-text flex-grow-1">Estimate your training zones for more effective workouts.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Training Zones</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Run Calorie Calculator</h3>
-                        <p class="card-text flex-grow-1">Get your fueling strategy right by estimating how much you're burning.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Run Calorie Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card border-light h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">Age Grade Calculator</h3>
-                        <p class="card-text flex-grow-1">Racing above 30? See how your performance would've ranked in your prime.</p>
-                        <a href="/run-calculators" class="btn btn-primary mt-3">Age Grade Calculator</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Frequently Asked Questions -->
+    <div class="card mb-5">
+        <div class="card-body">
+            <h2 class="card-header">Frequently Asked Questions</h2>
+            <hr>
+            <p>Answers to the most common questions about our training plans and generators.</p>
+            <h3>How to Use These Plans</h3>
+            <hr>
+            <p>Our training plans are designed to cater to all levels of runners. Here's how you can get the most out of them:</p>
+            <ul>
+                <li>Choose your race distance and the plan that fits your current fitness level.</li>
+                <li>Use our <a href="/run-calculators">Run Calculators</a> to fine-tune your paces and training zones.</li>
+                <li>Follow the weekly schedule, including rest days to prevent overtraining.</li>
+            </ul>
+            <h3>Difference Between Beginner, Intermediate, and Advanced Plans</h3>
+            <hr>
+            <p>Our plans are tailored to suit different levels of experience and goals:</p>
+            <ul>
+                <li><strong>Beginner:</strong> Focus on completing the race. Includes 3-4 days of training per week with essential mileage.</li>
+                <li><strong>Intermediate:</strong> Mixes different types of workouts, including speed work and long runs, with 4-5 days of training per week.</li>
+                <li><strong>Advanced:</strong> Includes goal or recent race paces, with 4-6 days of training per week, aiming to optimize performance.</li>
+            </ul>
+            <h3>Contact Us</h3>
+            <hr>
+            <p>If you have suggestions or need help, contact us at <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
         </div>
-    </div>
-
-    <div class="bg-light p-4 rounded mb-5">
-        <h2>Frequently Asked Questions</h2>
-        <hr>
-        <p>Answers to the most common questions about our training plans and generators.</p>
-        <h3>How to Use These Plans</h3>
-        <hr>
-        <p>Our training plans are designed to cater to all levels of runners. Here's how you can get the most out of them:</p>
-        <ul>
-            <li>Choose your race distance and the plan that fits your current fitness level.</li>
-            <li>Use our <a href="/run-calculators">Run Calculators</a> to fine-tune your paces and training zones.</li>
-            <li>Follow the weekly schedule, including rest days to prevent overtraining.</li>
-        </ul>
-        <h3>Difference Between Beginner, Intermediate, and Advanced Plans</h3>
-        <hr>
-        <p>Our plans are tailored to suit different levels of experience and goals:</p>
-        <ul>
-            <li><strong>Beginner:</strong> Focus on completing the race. Includes 3-4 days of training per week with essential mileage.</li>
-            <li><strong>Intermediate:</strong> Mixes different types of workouts, including speed work and long runs, with 4-5 days of training per week.</li>
-            <li><strong>Advanced:</strong> Includes goal or recent race paces, with 4-6 days of training per week, aiming to optimize performance.</li>
-        </ul>
-        <h3>Contact Us</h3>
-        <hr>
-        <p>If you have suggestions or need help, contact us at <a href="mailto:alex@longruntraining.com">alex@longruntraining.com</a>.</p>
     </div>
 </div>
 
@@ -271,4 +149,5 @@
 </div>
 
 <script src="{% static 'js/trainingplangenerator.js' %}"></script>
+<script src="{% static 'js/shared_plan_functions.js' %}"></script>
 {% endblock %}

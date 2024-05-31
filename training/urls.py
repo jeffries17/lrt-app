@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     home, about, generate_pdf, ultramarathon_pace_calculator, run_pace_calculator, running_snack_calculator, 
-    race_improvement_calculator, training_paces_calculator, ready_for_race_day, beginner_half_marathon, beginner_marathon, 
+    race_improvement_calculator, training_paces_calculator, ready_for_race_day, intermediate_half_marathon, beginner_marathon, 
     training_zones, ultramarathon_plan, running_resources, run_calorie_calculator, age_grade_calculator, run_calculators, 
     training_plans, faster_mile, intermediate_marathon, advanced_marathon,
 )
@@ -18,7 +18,7 @@ urlpatterns = [
     path('training-zones/', training_zones, name='training_zones'),
     path('run-calorie-calculator/', run_calorie_calculator, name='run_calorie_calculator'),
     path('age-grade-calculator/', age_grade_calculator, name='age_grade_calculator'),
-    path('beginner-half-marathon/', beginner_half_marathon, name='beginner_half_marathon'),
+    path('intermediate-half-marathon/', intermediate_half_marathon, name='intermediate_half_marathon'),
     path('beginner-marathon/', beginner_marathon, name='beginner_marathon'),
     path('intermediate-marathon/', intermediate_marathon, name='intermediate_marathon'),
     path('advanced-marathon/', advanced_marathon, name='advanced_marathon'),

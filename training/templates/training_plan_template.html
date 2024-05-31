@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/pdf_styles.css' %}">
 </head>
 <body>
-    <h1>Training Plan</h1>
-    <p>Distance: {{ distance }}</p>
-    <p>Weeks: {{ weeks }}</p>
-    <div>
+    <div class="header">
+        <h1>Training Plan</h1>
+        <div class="header-details">
+            <span>Distance: {{ distance }}</span>
+            <span>Weeks: {{ weeks }}</span>
+        </div>
+    </div>
+    <div class="content">
         {{ plan_html|safe }}
     </div>
 </body>

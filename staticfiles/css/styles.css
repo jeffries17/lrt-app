@@ -144,3 +144,9 @@ form input, form select {
   text-align: center;
   vertical-align: middle;
 }
+
+.harmonized-button {
+  width: 200px; /* Set a fixed width */
+  height: 50px; /* Set a fixed height */
+  font-size: 16px; /* Ensure the text size is consistent */
+}
