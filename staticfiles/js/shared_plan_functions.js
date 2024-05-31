@@ -11,13 +11,13 @@ function getCookie(name) {
         }
     }
     return cookieValue;
-  }
-  
-  function savePlan() {
+}
+
+function savePlan() {
     const planHtml = document.getElementById('trainingPlanOutput').innerHTML;
     const distance = document.getElementById('selectedDistance').value;
     const weeks = document.getElementById('selectedWeeks').value;
-  
+
     fetch('/generate_pdf/', {
         method: 'POST',
         headers: {
@@ -47,14 +47,14 @@ function getCookie(name) {
         window.URL.revokeObjectURL(url);
     })
     .catch(error => console.error('Error:', error));
-  }
-  
-  function sendPlanViaEmail() {
+}
+
+function sendPlanViaEmail() {
     const planHtml = document.getElementById('trainingPlanOutput').innerHTML;
     const distance = document.getElementById('selectedDistance').value;
     const weeks = document.getElementById('selectedWeeks').value;
     const email = prompt("Please enter your email address:");
-  
+
     if (email) {
         fetch('/generate_pdf/', {
             method: 'POST',
@@ -79,38 +79,37 @@ function getCookie(name) {
         })
         .catch(error => console.error('Error:', error));
     }
-  }
-  
-  function addDownloadAndEmailButtons() {
+}
+
+function addDownloadAndEmailButtons() {
     const existingDownloadButton = document.getElementById('downloadButton');
     if (existingDownloadButton) {
         existingDownloadButton.remove();
     }
-  
+
     const existingEmailButton = document.getElementById('emailButton');
     if (existingEmailButton) {
         existingEmailButton.remove();
     }
-  
+
     const downloadButton = document.createElement('button');
     downloadButton.id = 'downloadButton';
     downloadButton.type = 'button';
-    downloadButton.className = 'btn btn-success mt-3 ml-3 harmonized-button';
+    downloadButton.className = 'btn custom-success mt-3 ml-3 harmonized-button';
     downloadButton.innerText = 'Download Plan as PDF';
     downloadButton.onclick = savePlan;
-  
+
     const emailButton = document.createElement('button');
     emailButton.id = 'emailButton';
     emailButton.type = 'button';
-    emailButton.className = 'btn btn-primary mt-3 ml-3 harmonized-button';
+    emailButton.className = 'btn custom-primary mt-3 ml-3 harmonized-button';
     emailButton.innerText = 'Send Plan via Email';
     emailButton.onclick = sendPlanViaEmail;
-  
+
     document.getElementById('trainingPlanOutput').insertAdjacentElement('afterend', downloadButton);
     downloadButton.insertAdjacentElement('afterend', emailButton);
-  }
-  
-  window.savePlan = savePlan;
-  window.sendPlanViaEmail = sendPlanViaEmail;
-  window.addDownloadAndEmailButtons = addDownloadAndEmailButtons;
-  
+}
+
+window.savePlan = savePlan;
+window.sendPlanViaEmail = sendPlanViaEmail;
+window.addDownloadAndEmailButtons = addDownloadAndEmailButtons;

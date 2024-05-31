@@ -13,19 +13,20 @@ h1, h2 {
 }
 
 .header {
-  background-color: #FBFCFF; /* Use a light background color */
+  background-color: #fff;
   padding: 20px;
-  border-bottom: 2px solid #1C6E8C; /* Add a subtle border */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a light shadow for depth */
+  border-bottom: 2px solid #1C6E8C;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Reduce margin-bottom for closer integration */
 }
 
 .header h1 {
-  color: #1C6E8C; /* Use a primary color for the header text */
+  color: #1C6E8C;
   margin: 0;
 }
 
 .header p {
-  color: #274156; /* Use a secondary color for the tagline */
+  color: #274156;
   margin: 5px 0 0;
 }
 
@@ -42,7 +43,7 @@ h1, h2 {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  border-bottom: 2px solid #1C6E8C; /* Add a subtle border */
+  border-bottom: 2px solid #1C6E8C;
 }
 
 .card-header {
@@ -79,6 +80,16 @@ h1, h2 {
   text-align: center;
 }
 
+.step-card {
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  flex: 1;
+}
+
 .faq {
   margin: 20px;
   padding: 20px;
@@ -91,21 +102,22 @@ html {
 }
 
 body {
-  margin-bottom: 60px; /* Adjust this value based on the height of your footer */
+  margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px; /* Adjust this value based on the height of your footer */
-  background-color: #1C6E8C; /* Use your footer background color */
+  height: 60px;
+  background-color: #1C6E8C;
   color: white;
   padding: 20px 0;
   text-align: center;
 }
 
 .footer a {
-  color: #FBFCFF; /* Light color for better readability */
+  color: #FBFCFF;
   text-decoration: underline;
 }
 
@@ -114,12 +126,12 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.8);
   max-width: 800px;
   text-align: center;
 }
 
-input[type="submit"], .btn-primary {
+input[type="submit"], .btn-primary, .btn-success, .btn-custom {
   background-color: #1C6E8C;
   color: white;
   border: none;
@@ -128,7 +140,7 @@ input[type="submit"], .btn-primary {
   cursor: pointer;
 }
 
-input[type="submit"]:hover, .btn-primary:hover {
+input[type="submit"]:hover, .btn-primary:hover, .btn-success:hover, .btn-custom:hover {
   background-color: #274156;
 }
 
@@ -146,7 +158,20 @@ form input, form select {
 }
 
 .harmonized-button {
-  width: 200px; /* Set a fixed width */
-  height: 50px; /* Set a fixed height */
-  font-size: 16px; /* Ensure the text size is consistent */
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+}
+
+.custom-success {
+  background-color: #D0CCD0 !important;
+}
+
+.custom-primary {
+  background-color: #1C6E8C !important;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
 }

@@ -1,7 +1,13 @@
 async function loadAgeData(gender, distance) {
-  const response = await fetch(`/static/csv/bestracetimes/${gender}-${distance}.csv`);
-  const data = await response.text();
-  return parseCSV(data);
+  try {
+    const response = await fetch(`/static/csv/bestracetimes/${gender}-${distance}.csv`);
+    const data = await response.text();
+    return parseCSV(data);
+  } catch (error) {
+    console.error("Error loading age data:", error);
+    alert("Failed to load age data. Please try again later.");
+    return [];
+  }
 }
 
 function parseCSV(csvData) {
@@ -63,9 +69,13 @@ async function calculateAgeGrading() {
   const athleteTime = parseInt(timeParts[0]) * 3600 + parseInt(timeParts[1]) * 60 + parseInt(timeParts[2]);
 
   const ageData = await loadAgeData(gender, distance);
+  if (ageData.length === 0) {
+    return; // Exit if age data could not be loaded
+  }
+
   const standardRecordTime = findStandardRecordTime(ageData);
   const closestRecord = findClosestRecord(ageData, age);
-  const ageFactor = standardRecordTime / closestRecord.time;
+  const ageFactor = closestRecord.time / standardRecordTime;
   const ageGradedTime = calculateAgeGradedTime(athleteTime, ageFactor);
   const ageGradingPercentage = calculateAgeGradingPercentage(standardRecordTime, ageGradedTime);
 
