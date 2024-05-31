@@ -131,7 +131,7 @@ body {
   text-align: center;
 }
 
-input[type="submit"], .btn-primary, .btn-success, .btn-custom {
+input[type="submit"], .btn-primary, .btn-success, .btn-custom, .btn.custom-success, .btn.custom-primary {
   background-color: #1C6E8C;
   color: white;
   border: none;
@@ -140,7 +140,7 @@ input[type="submit"], .btn-primary, .btn-success, .btn-custom {
   cursor: pointer;
 }
 
-input[type="submit"]:hover, .btn-primary:hover, .btn-success:hover, .btn-custom:hover {
+input[type="submit"]:hover, .btn-primary:hover, .btn-success:hover, .btn-custom:hover, .btn.custom-success:hover, .btn.custom-primary:hover {
   background-color: #274156;
 }
 
@@ -161,7 +161,7 @@ form input, form select {
   width: 200px;
   height: 50px;
   font-size: 16px;
-}
+}ç
 
 .center-button {
   display: flex;
