@@ -138,6 +138,10 @@ input[type="submit"], .btn-primary, .btn-success, .btn-custom, .btn.custom-succe
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 input[type="submit"]:hover, .btn-primary:hover, .btn-success:hover, .btn-custom:hover, .btn.custom-success:hover, .btn.custom-primary:hover {
@@ -152,18 +156,43 @@ form input, form select {
   margin-bottom: 10px;
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
 .table th, .table td {
   text-align: center;
   vertical-align: middle;
 }
 
 .harmonized-button {
-  width: 200px;
-  height: 50px;
+  width: auto;
+  height: auto;
   font-size: 16px;
-}ç
+  padding: 10px 15px; /* Adjust padding if needed */
+  text-align: center;
+  white-space: nowrap;
+}
 
 .center-button {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .form-row .form-group {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .card-left, .card-right {
+    max-width: 100%;
+  }
+  .btn, .btn-primary, .btn-success, .btn-custom, .btn.custom-success, .btn.custom-primary {
+    font-size: 14px;
+    padding: 8px 10px; /* Adjust padding for smaller screens */
+  }
+  .harmonized-button {
+    width: 100%; /* Full width on smaller screens */
+    box-sizing: border-box;
+  }
 }

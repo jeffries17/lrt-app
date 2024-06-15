@@ -7,9 +7,9 @@
 {% block content %}
 
 <div class="container my-4">
-  <h1 class="mb-3">Mile Time Improvement Plan Generator</h1>
+  <h1 class="mb-3 text-center">Mile Time Improvement Plan Generator</h1>
   <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 mb-4">
           <div class="card">
               <div class="card-body">
                   <form id="mileForm">
@@ -27,12 +27,12 @@
                               <option value="kilometers">Kilometers</option>
                           </select>
                       </div>
-                      <button type="button" class="btn btn-primary" id="generatePlan">Generate Plan</button>
+                      <button type="button" class="btn btn-primary harmonized-button" id="generatePlan">Generate Plan</button>
                   </form>
               </div>
           </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-4">
           <div class="card">
               <div class="card-body">
                   <h5 class="card-title">How It Works</h5>
@@ -46,7 +46,7 @@
   <div class="row mt-4">
       <div class="col-12">
           <h3>Your Training Plan:</h3>
-          <div id="planOutput" class="mt-3" data-csv-url="{% static 'csv/mileplan.csv' %}">
+          <div id="planOutput" class="mt-3 table-responsive" data-csv-url="{% static 'csv/mileplan.csv' %}">
               <!-- Training plan will be displayed here -->
           </div>
       </div>

@@ -42,7 +42,7 @@
                     <option value="miles">Miles</option>
                 </select>
             </div>
-            <button type="button" class="btn btn-primary mb-2" onclick="generateRunToGoFasterPlan()">Generate Plan</button>
+            <button type="button" class="btn btn-primary harmonized-button mb-2" onclick="generateRunToGoFasterPlan()">Generate Plan</button>
         </form>
         <div id="paceBreakdown" class="mt-4 p-3" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem;"></div>
         <div id="slider-container" class="mt-4">
@@ -50,7 +50,9 @@
             <input type="range" id="pace-slider" min="0" max="60" value="0" step="1">
             <span id="pace-slider-value">0</span> seconds per km
         </div>
-        <div id="fasterPlanOutput" class="mt-4"></div>
+        <div id="fasterPlanOutput" class="mt-4 table-responsive">
+            <!-- Plan output will be displayed here -->
+        </div>
     </div>
 </div>
 

@@ -152,6 +152,10 @@ form input, form select {
   margin-bottom: 10px;
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
 .table th, .table td {
   text-align: center;
   vertical-align: middle;
@@ -161,9 +165,19 @@ form input, form select {
   width: 200px;
   height: 50px;
   font-size: 16px;
-}ç
+}
 
 .center-button {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .form-row .form-group {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .card-left, .card-right {
+    max-width: 100%;
+  }
 }
