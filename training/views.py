@@ -111,6 +111,9 @@ def advanced_marathon(request):
 def faster_mile(request):
     return render(request, 'plans/faster_mile_plan.html')
 
+def base_building(request):
+    return render(request, 'plans/base_building.html')
+
 def run_calculators(request):
     return render(request, 'run_calculators.html')
 
